@@ -2,6 +2,7 @@ from gui.contextMenu import ContextMenu
 from gui.itemStats import ItemStatsDialog
 import gui.mainFrame
 import service
+import wx
 _ = wx.GetTranslation
 class MarketJump(ContextMenu):
     def __init__(self):

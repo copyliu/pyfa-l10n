@@ -24,6 +24,7 @@ from eos.graph.fitDps import FitDpsGraph as FitDps
 from eos.graph import Data
 import gui.mainFrame
 import service
+import wx
 _ = wx.GetTranslation
 class FitDpsGraph(Graph):
     propertyAttributeMap = {"angle": "maxVelocity",

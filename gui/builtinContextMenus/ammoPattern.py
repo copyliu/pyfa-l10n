@@ -3,7 +3,7 @@ import gui.mainFrame
 import service
 import wx
 import gui.globalEvents as GE
-
+_ = wx.GetTranslation
 class AmmoPattern(ContextMenu):
     def __init__(self):
         self.mainFrame = gui.mainFrame.MainFrame.getInstance()
@@ -21,7 +21,7 @@ class AmmoPattern(ContextMenu):
         return False
 
     def getText(self, itmContext, selection):
-        return "Set {0} as Damage Pattern".format(itmContext if itmContext is not None else "Item")
+        return _("Set {0} as Damage Pattern").format(itmContext if itmContext is not None else _("Item"))
 
     def activate(self, fullContext, selection, i):
         item = selection[0]

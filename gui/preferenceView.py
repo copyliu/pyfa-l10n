@@ -18,7 +18,7 @@
 #===============================================================================
 
 import wx
-
+_ = wx.GetTranslation
 class PreferenceView(object):
     views = {}
     def __init__(self):

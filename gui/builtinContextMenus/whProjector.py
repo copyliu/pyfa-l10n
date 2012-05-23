@@ -12,7 +12,7 @@ class WhProjector(ContextMenu):
         return srcContext in ("projectedDrone", "projectedModule", "projectedCharge", "projectedFit", "projectedNone")
 
     def getText(self, itmContext, selection):
-        return "Add System Effects"
+        return _("Add System Effects")
 
     def activate(self, fullContext, selection, i):
         pass

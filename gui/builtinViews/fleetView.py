@@ -2,7 +2,7 @@ import wx.gizmos
 import gui.fleetBrowser
 import service
 from gui import bitmapLoader
-
+_ = wx.GetTranslation
 #Tab spawning handler
 class FleetSpawner(gui.multiSwitch.TabSpawner):
     def __init__(self, multiSwitch):
@@ -12,7 +12,7 @@ class FleetSpawner(gui.multiSwitch.TabSpawner):
 
     def fleetSelected(self, event):
         if self.multiSwitch.GetPageCount() == 0:
-            self.multiSwitch.AddPage(wx.Panel(self.multiSwitch, size = (0,0)), "Empty Tab")
+            self.multiSwitch.AddPage(wx.Panel(self.multiSwitch, size = (0,0)), _("Empty Tab"))
 
         view = FleetView(self.multiSwitch)
         self.multiSwitch.ReplaceActivePage(view)

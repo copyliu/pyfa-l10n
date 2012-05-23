@@ -3,7 +3,7 @@ from gui.itemStats import ItemStatsDialog
 import gui.mainFrame
 import service
 import wx
-
+_ = wx.GetTranslation
 class ItemStats(ContextMenu):
     def __init__(self):
         self.mainFrame = gui.mainFrame.MainFrame.getInstance()
@@ -13,7 +13,7 @@ class ItemStats(ContextMenu):
                               "droneItem", "implantItem", "boosterItem", "skillItem", "projectedModule", "projectedDrone", "projectedCharge")
 
     def getText(self, itmContext, selection):
-        return "{0} Stats".format(itmContext if itmContext is not None else "Item")
+        return _("{0} Stats").format(itmContext if itmContext is not None else _("Item"))
 
     def activate(self, fullContext, selection, i):
         srcContext = fullContext[0]

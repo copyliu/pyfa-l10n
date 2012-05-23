@@ -20,8 +20,9 @@
 import wx
 from gui.preferenceView import PreferenceView
 from gui import bitmapLoader
+_ = wx.GetTranslation
 class DummyView(PreferenceView):
-    title = "Dummy"
+    title = _("Dummy")
 
     def populatePanel(self, panel):
 

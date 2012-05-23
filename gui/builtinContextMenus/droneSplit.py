@@ -4,7 +4,7 @@ import gui.mainFrame
 import gui.globalEvents as GE
 import service
 import wx
-
+_ = wx.GetTranslation
 class DroneSplit(ContextMenu):
     def __init__(self):
         self.mainFrame = gui.mainFrame.MainFrame.getInstance()
@@ -13,7 +13,7 @@ class DroneSplit(ContextMenu):
         return srcContext in ("droneItem", "projectedDrone") and selection[0].amount > 1
 
     def getText(self, itmContext, selection):
-        return "Split {0} Stack".format(itmContext)
+        return _("Split {0} Stack").format(itmContext)
 
     def activate(self, fullContext, selection, i):
         srcContext = fullContext[0]
@@ -27,7 +27,7 @@ DroneSplit.register()
 class DroneSpinner(wx.Dialog):
 
     def __init__(self, parent, drone, context):
-        wx.Dialog.__init__(self, parent, title="Select Amount", size=wx.Size(220, 60))
+        wx.Dialog.__init__(self, parent, title=_("Select Amount"), size=wx.Size(220, 60))
         self.drone = drone
         self.context = context
 

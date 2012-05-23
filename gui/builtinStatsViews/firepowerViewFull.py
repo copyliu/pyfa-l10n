@@ -22,7 +22,7 @@ from gui.statsView import StatsView
 from gui import builtinStatsViews
 from gui import bitmapLoader
 from gui.utils.numberFormatter import formatAmount
-
+_ = wx.GetTranslation
 class FirepowerViewFull(StatsView):
     name = "firepowerViewFull"
     def __init__(self, parent):
@@ -30,7 +30,7 @@ class FirepowerViewFull(StatsView):
         self.parent = parent
         self._cachedValues = []
     def getHeaderText(self, fit):
-        return "Firepower"
+        return _("Firepower")
 
     def getTextExtentW(self, text):
         width, height = self.parent.GetTextExtent( text )

@@ -15,7 +15,7 @@ import time
 import gui.utils.colorUtils as colorUtils
 import gui.utils.drawUtils as drawUtils
 from gui import bitmapLoader
-
+_ = wx.GetTranslation
 _PageChanging, EVT_NOTEBOOK_PAGE_CHANGING = wx.lib.newevent.NewEvent()
 _PageChanged, EVT_NOTEBOOK_PAGE_CHANGED = wx.lib.newevent.NewEvent()
 _PageAdding, EVT_NOTEBOOK_PAGE_ADDING = wx.lib.newevent.NewEvent()
@@ -183,7 +183,7 @@ class PFNotebook(wx.Panel):
 
         wx.PostEvent(self, PageChanged(cpage, npage))
 
-    def AddPage(self, tabWnd = None, tabTitle ="Empty Tab", tabImage = None, showClose = True):
+    def AddPage(self, tabWnd = None, tabTitle =_("Empty Tab"), tabImage = None, showClose = True):
         if self.activePage:
             self.activePage.Hide()
         if not tabWnd:

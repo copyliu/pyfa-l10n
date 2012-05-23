@@ -28,14 +28,14 @@ from gui.gangView import GangView
 from gui import bitmapLoader
 
 import gui.chromeTabs
-
+_ = wx.GetTranslation
 class AdditionsPane(TogglePanel):
 
     def __init__(self, parent):
 
         TogglePanel.__init__(self, parent, forceLayout = 1)
 
-        self.SetLabel("Additions")
+        self.SetLabel(_("Additions"))
         pane = self.GetContentPane()
 
         baseSizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -56,18 +56,18 @@ class AdditionsPane(TogglePanel):
         projectedImg = bitmapLoader.getImage("projected_small", "icons")
         gangImg = bitmapLoader.getImage("fleet_fc_small", "icons")
 
-        self.notebook.AddPage(DroneView(self.notebook), "Drones", tabImage = droneImg, showClose = False)
-        self.notebook.AddPage(ImplantView(self.notebook), "Implants", tabImage = implantImg, showClose = False)
-        self.notebook.AddPage(BoosterView(self.notebook), "Boosters", tabImage = boosterImg, showClose = False)
+        self.notebook.AddPage(DroneView(self.notebook), _("Drones"), tabImage = droneImg, showClose = False)
+        self.notebook.AddPage(ImplantView(self.notebook), _("Implants"), tabImage = implantImg, showClose = False)
+        self.notebook.AddPage(BoosterView(self.notebook), _("Boosters"), tabImage = boosterImg, showClose = False)
 
         self.projectedPage = ProjectedView(self.notebook)
-        self.notebook.AddPage(self.projectedPage, "Projected", tabImage = projectedImg, showClose = False)
+        self.notebook.AddPage(self.projectedPage, _("Projected"), tabImage = projectedImg, showClose = False)
 
         self.gangPage = GangView(self.notebook)
-        self.notebook.AddPage(self.gangPage, "Fleet", tabImage = gangImg, showClose = False)
+        self.notebook.AddPage(self.gangPage, _("Fleet"), tabImage = gangImg, showClose = False)
         self.notebook.SetSelection(0)
 
 
-    PANES = ["Drones", "Implants", "Boosters", "Projected", "Fleet"]
+    PANES = [_("Drones"), _("Implants"), _("Boosters"), _("Projected"), _("Fleet")]
     def select(self, name):
         self.notebook.SetSelection(self.PANES.index(name))

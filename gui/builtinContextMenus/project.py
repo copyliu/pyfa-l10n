@@ -16,7 +16,7 @@ class Project(ContextMenu):
         return item.isType("projected")
 
     def getText(self, itmContext, selection):
-        return "Project {0} onto Fit".format(itmContext)
+        return _("Project {0} onto Fit").format(itmContext)
 
     def activate(self, fullContext, selection, i):
         sFit = service.Fit.getInstance()

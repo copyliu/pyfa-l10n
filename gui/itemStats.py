@@ -27,7 +27,7 @@ import wx.html
 from eos.types import Ship, Module, Skill, Booster, Implant, Drone
 from gui.utils.numberFormatter import formatAmount
 import service
-
+_ = wx.GetTranslation
 class ItemStatsDialog(wx.Dialog):
     counter = 0
     def __init__(self, victim, fullContext=None, pos = wx.DefaultPosition, size = wx.DefaultSize, maximized = False):
@@ -134,20 +134,20 @@ class ItemStatsContainer ( wx.Panel ):
         mainSizer.Add( self.nbContainer, 1, wx.EXPAND |wx.ALL, 2 )
 
         self.desc = ItemDescription(self.nbContainer, stuff, item)
-        self.nbContainer.AddPage(self.desc, "Description")
+        self.nbContainer.AddPage(self.desc, _("Description"))
 
         self.params = ItemParams(self.nbContainer, stuff, item, context)
-        self.nbContainer.AddPage(self.params, "Attributes")
+        self.nbContainer.AddPage(self.params, _("Attributes"))
 
         self.reqs = ItemRequirements(self.nbContainer, stuff, item)
-        self.nbContainer.AddPage(self.reqs, "Requirements")
+        self.nbContainer.AddPage(self.reqs,_( "Requirements"))
 
         self.effects = ItemEffects(self.nbContainer, stuff, item)
-        self.nbContainer.AddPage(self.effects, "Effects")
+        self.nbContainer.AddPage(self.effects, _("Effects"))
 
         if stuff is not None:
             self.affectedby = ItemAffectedBy(self.nbContainer, stuff, item)
-            self.nbContainer.AddPage(self.affectedby, "Affected by")
+            self.nbContainer.AddPage(self.affectedby,_( "Affected by"))
 
         self.nbContainer.Bind(wx.EVT_LEFT_DOWN, self.mouseHit)
         self.SetSizer(mainSizer)
@@ -270,8 +270,8 @@ class ItemParams (wx.Panel):
         event.Skip()
 
     def PopulateList(self):
-        self.paramList.InsertColumn(0,"Attribute")
-        self.paramList.InsertColumn(1,"Value")
+        self.paramList.InsertColumn(0,_("Attribute"))
+        self.paramList.InsertColumn(1,_("Value"))
         self.paramList.SetColumnWidth(1,150)
         self.paramList.setResizeColumn(1)
         self.imageList = wx.ImageList(16, 16)

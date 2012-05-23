@@ -25,7 +25,7 @@ import gui.marketBrowser as mb
 import gui.display as d
 from gui.builtinViewColumns.state import State
 from gui.contextMenu import ContextMenu
-
+_ = wx.GetTranslation
 class DroneViewDrop(wx.PyDropTarget):
         def __init__(self, dropFn):
             wx.PyDropTarget.__init__(self)

@@ -26,7 +26,7 @@ from gui.builtinViewColumns.state import State
 from gui.contextMenu import ContextMenu
 import eos.types
 
-
+_ = wx.GetTranslation
 class ProjectedViewDrop(wx.PyDropTarget):
         def __init__(self, dropFn):
             wx.PyDropTarget.__init__(self)

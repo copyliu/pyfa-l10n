@@ -22,14 +22,14 @@ from gui.statsView import StatsView
 from gui import builtinStatsViews
 from gui import bitmapLoader
 from gui.utils.numberFormatter import formatAmount
-
+_ = wx.GetTranslation
 class CapacitorViewFull(StatsView):
     name = "capacitorViewFull"
     def __init__(self, parent):
         StatsView.__init__(self)
         self.parent = parent
     def getHeaderText(self, fit):
-        return "Capacitor"
+        return _("Capacitor")
 
     def getTextExtentW(self, text):
         width, height = self.parent.GetTextExtent( text )
@@ -64,12 +64,12 @@ class CapacitorViewFull(StatsView):
         setattr(self, "label%sCapacitorCapacity" % panel.capitalize(), lbl)
         hbox.Add(lbl, 0, wx.ALIGN_LEFT)
 
-        hbox.Add(wx.StaticText(parent, wx.ID_ANY, " GJ"), 0, wx.ALIGN_LEFT)
+        hbox.Add(wx.StaticText(parent, wx.ID_ANY, _(" GJ")), 0, wx.ALIGN_LEFT)
 
         hbox = wx.BoxSizer(wx.HORIZONTAL)
         box.Add(hbox, 0, wx.ALIGN_LEFT)
 
-        lbl = wx.StaticText(parent, wx.ID_ANY, "Lasts ")
+        lbl = wx.StaticText(parent, wx.ID_ANY, _("Lasts "))
         hbox.Add(lbl, 0, wx.ALIGN_LEFT | wx.LEFT, 3)
         setattr(self, "label%sCapacitorState" % panel.capitalize(), lbl)
 
@@ -139,7 +139,7 @@ class CapacitorViewFull(StatsView):
                 else:
                     t = "%ds" % capState
 
-            s = "Stable: " if capStable else "Lasts "
+            s = _("Stable: ") if capStable else _("Lasts ")
 
         getattr(self, lblNameTime % panel).SetLabel(t)
         getattr(self, lblNameState % panel).SetLabel(s)

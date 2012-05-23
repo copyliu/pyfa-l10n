@@ -20,7 +20,7 @@
 import wx
 import gui.chromeTabs
 import gui.builtinViews.emptyView
-
+_ = wx.GetTranslation
 class MultiSwitch(gui.chromeTabs.PFNotebook):
     def __init__(self, parent):
         gui.chromeTabs.PFNotebook.__init__(self, parent)
@@ -35,7 +35,7 @@ class MultiSwitch(gui.chromeTabs.PFNotebook):
             if h:
                 h(type, info)
 
-    def AddPage(self, tabWnd=None, tabTitle="Empty Tab",  tabImage=None):
+    def AddPage(self, tabWnd=None, tabTitle=_("Empty Tab"),  tabImage=None):
         if tabWnd is None:
             tabWnd = gui.builtinViews.emptyView.BlankPage(self)
             tabWnd.handleDrag = lambda type, info: self.handleDrag(type, info)

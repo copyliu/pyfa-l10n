@@ -20,12 +20,12 @@
 import wx
 from gui.preferenceView import PreferenceView
 import bitmapLoader
-
+_ = wx.GetTranslation
 class PreferenceDialog(wx.Dialog):
 
     def __init__(self, parent):
         wx.Dialog.__init__(self, parent, id=wx.ID_ANY, size=wx.DefaultSize, style=wx.DEFAULT_DIALOG_STYLE)
-        self.SetTitle("pyfa - Preferences")
+        self.SetTitle(_("pyfa - Preferences"))
         i = wx.IconFromBitmap(bitmapLoader.getBitmap("preferences_small", "icons"))
         self.SetIcon(i)
         mainSizer = wx.BoxSizer(wx.VERTICAL)

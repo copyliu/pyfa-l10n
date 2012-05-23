@@ -113,10 +113,10 @@ class MainFrame(wx.Frame):
         shipBrowserImg = bitmapLoader.getImage("ship_small", "icons")
 
         self.marketBrowser = MarketBrowser(self.notebookBrowsers)
-        self.notebookBrowsers.AddPage(self.marketBrowser, "Market", tabImage = marketImg, showClose = False)
+        self.notebookBrowsers.AddPage(self.marketBrowser, _("Market"), tabImage = marketImg, showClose = False)
 
         self.shipBrowser = ShipBrowser(self.notebookBrowsers)
-        self.notebookBrowsers.AddPage(self.shipBrowser, "Ships", tabImage = shipBrowserImg, showClose = False)
+        self.notebookBrowsers.AddPage(self.shipBrowser, _("Ships"), tabImage = shipBrowserImg, showClose = False)
 
         #=======================================================================
         # DISABLED FOR RC2 RELEASE
@@ -233,21 +233,21 @@ class MainFrame(wx.Frame):
 
     def ShowAboutBox(self, evt):
         info = wx.AboutDialogInfo()
-        info.Name = "pyfa"
+        info.Name = _("pyfa")
         info.Version = gui.aboutData.versionString
-        info.Description = wordwrap(gui.aboutData.description + "\n\n\nDevelopers: " +
+        info.Description = wordwrap(gui.aboutData.description + _("\n\n\nDevelopers: ") +
                                      "".join(gui.aboutData.developers) +
-                                     "\n\nAdditional credits:\n  " +
+                                     _("\n\nAdditional credits:\n  ") +
                                      "\n  ".join(gui.aboutData.credits)
-                                     + "\n\nLicense: " +
+                                     + _("\n\nLicense: ") +
                                      gui.aboutData.license +
-                                     " - see included " +
+                                     _(" - see included ") +
                                      gui.aboutData.licenseLocation +
                                      "\n\nPython: \t" + sys.version +
                                      "\nwxPython: \t" + wx.__version__ +
                                      "\nSQLAlchemy: \t" + sqlalchemy.__version__,
             700, wx.ClientDC(self))
-        info.WebSite = ("http://www.evefit.org/Pyfa", "pyfa home page")
+        info.WebSite = (_("http://www.evefit.org/Pyfa"), _("pyfa home page"))
         wx.AboutBox(info)
 
 
@@ -265,8 +265,8 @@ class MainFrame(wx.Frame):
         sFit = service.Fit.getInstance()
         dlg=wx.FileDialog(
             self,
-            "Open One Or More Fitting Files",
-            wildcard = "EFT text fitting files (*.cfg)|*.cfg|EvE XML fitting files (*.xml)|*.xml|All Files (*)|*",
+            _("Open One Or More Fitting Files"),
+            wildcard = _("EFT text fitting files (*.cfg)|*.cfg|EvE XML fitting files (*.xml)|*.xml|All Files (*)|*"),
             style = wx.FD_OPEN | wx.FD_FILE_MUST_EXIST | wx.FD_MULTIPLE)
         if (dlg.ShowModal() == wx.ID_OK):
             self.waitDialog = animUtils.WaitDialog(self, title = "Importing")
@@ -291,8 +291,8 @@ class MainFrame(wx.Frame):
     def showExportDialog(self, event):
         dlg=wx.FileDialog(
             self,
-            "Save Fitting As...",
-            wildcard = "EvE XML fitting files (*.xml)|*.xml",
+            _("Save Fitting As..."),
+            wildcard = _("EvE XML fitting files (*.xml)|*.xml"),
             style = wx.FD_SAVE)
         if (dlg.ShowModal() == wx.ID_OK):
             sFit = service.Fit.getInstance()
@@ -304,7 +304,7 @@ class MainFrame(wx.Frame):
                 if '.' not in os.path.basename(path):
                     path += ".xml"
             else:
-                print "oops, invalid fit format %d" % format
+                print _("oops, invalid fit format %d") % format
                 dlg.Destroy()
                 return
             file = open(path, "w")
@@ -465,8 +465,8 @@ class MainFrame(wx.Frame):
         sFit = service.Fit.getInstance()
         saveDialog = wx.FileDialog(
             self,
-            "Save Backup As...",
-            wildcard = "EvE XML fitting file (*.xml)|*.xml",
+            _("Save Backup As..."),
+            wildcard = _("EvE XML fitting file (*.xml)|*.xml"),
             style = wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT)
         if (saveDialog.ShowModal() == wx.ID_OK):
             filePath = saveDialog.GetPath()

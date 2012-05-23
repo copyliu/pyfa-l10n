@@ -9,9 +9,9 @@ import gui.mainFrame
 import service
 import gui.globalEvents as GE
 
-
+_ = wx.GetTranslation
 class PFGlobalPref ( PreferenceView):
-    title = "Pyfa Global Options"
+    title = _("Pyfa Global Options")
 
     def populatePanel( self, panel ):
 
@@ -36,18 +36,18 @@ class PFGlobalPref ( PreferenceView):
 #        self.m_staticline1 = wx.StaticLine( panel, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
 #        mainSizer.Add( self.m_staticline1, 0, wx.EXPAND, 5 )
 
-        self.cbGlobalChar = wx.CheckBox( panel, wx.ID_ANY, u"Use global character", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.cbGlobalChar = wx.CheckBox( panel, wx.ID_ANY, _(u"Use global character"), wx.DefaultPosition, wx.DefaultSize, 0 )
         mainSizer.Add( self.cbGlobalChar, 0, wx.ALL|wx.EXPAND, 5 )
 
-        self.cbGlobalDmgPattern = wx.CheckBox( panel, wx.ID_ANY, u"Use global damage pattern", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.cbGlobalDmgPattern = wx.CheckBox( panel, wx.ID_ANY, _(u"Use global damage pattern"), wx.DefaultPosition, wx.DefaultSize, 0 )
         mainSizer.Add( self.cbGlobalDmgPattern, 0, wx.ALL|wx.EXPAND, 5 )
 
-        self.cbGlobalForceReload = wx.CheckBox( panel, wx.ID_ANY, u"Factor in reload time", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.cbGlobalForceReload = wx.CheckBox( panel, wx.ID_ANY, _(u"Factor in reload time"), wx.DefaultPosition, wx.DefaultSize, 0 )
         mainSizer.Add( self.cbGlobalForceReload, 0, wx.ALL|wx.EXPAND, 5 )
 
         defCharSizer = wx.BoxSizer( wx.HORIZONTAL )
 
-        self.stDefChar = wx.StaticText( panel, wx.ID_ANY, u"Default character:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.stDefChar = wx.StaticText( panel, wx.ID_ANY, _(u"Default character:"), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.stDefChar.Wrap( -1 )
         defCharSizer.Add( self.stDefChar, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
@@ -62,7 +62,7 @@ class PFGlobalPref ( PreferenceView):
         self.m_staticline2 = wx.StaticLine( panel, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
         mainSizer.Add( self.m_staticline2, 0, wx.EXPAND, 5 )
 
-        self.stPTitle = wx.StaticText( panel, wx.ID_ANY, "Proxy settings", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.stPTitle = wx.StaticText( panel, wx.ID_ANY, _("Proxy settings"), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.stPTitle.Wrap( -1 )
         self.stPTitle.SetFont( wx.Font( 12, 70, 90, 90, False, wx.EmptyString ) )
 
@@ -71,11 +71,11 @@ class PFGlobalPref ( PreferenceView):
 
         ptypeSizer = wx.BoxSizer( wx.HORIZONTAL )
 
-        self.stPType = wx.StaticText( panel, wx.ID_ANY, u"Mode:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.stPType = wx.StaticText( panel, wx.ID_ANY, _(u"Mode:"), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.stPType.Wrap( -1 )
         ptypeSizer.Add( self.stPType, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
-        self.chProxyTypeChoices = [ u"No proxy", u"Auto-detected proxy settings", u"Manual proxy settings" ]
+        self.chProxyTypeChoices = [_( u"No proxy"), _(u"Auto-detected proxy settings"), _(u"Manual proxy settings") ]
         self.chProxyType = wx.Choice( panel, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, self.chProxyTypeChoices, 0 )
 
 
@@ -91,7 +91,7 @@ class PFGlobalPref ( PreferenceView):
         fgAddrSizer.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
 
 
-        self.stPSetAddr = wx.StaticText( panel, wx.ID_ANY, u"Addr:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.stPSetAddr = wx.StaticText( panel, wx.ID_ANY, _(u"Addr:"), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.stPSetAddr.Wrap( -1 )
         fgAddrSizer.Add( self.stPSetAddr, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
@@ -99,7 +99,7 @@ class PFGlobalPref ( PreferenceView):
 
         fgAddrSizer.Add( self.editProxySettingsAddr, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL | wx.EXPAND, 5 )
 
-        self.stPSetPort = wx.StaticText( panel, wx.ID_ANY, u"Port:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.stPSetPort = wx.StaticText( panel, wx.ID_ANY,_( u"Port:"), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.stPSetPort.Wrap( -1 )
 
         fgAddrSizer.Add( self.stPSetPort, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
@@ -110,14 +110,14 @@ class PFGlobalPref ( PreferenceView):
 
         mainSizer.Add( fgAddrSizer, 0, wx.EXPAND, 5)
 
-        self.stPSAutoDetected = wx.StaticText( panel, wx.ID_ANY, u"Auto-detected: ", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.stPSAutoDetected = wx.StaticText( panel, wx.ID_ANY, _(u"Auto-detected: "), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.stPSAutoDetected.Wrap( -1 )
         mainSizer.Add( self.stPSAutoDetected, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
         btnSizer = wx.BoxSizer( wx.HORIZONTAL )
         btnSizer.AddSpacer( ( 0, 0), 1, wx.EXPAND, 5 )
 
-        self.btnApply = wx.Button( panel, wx.ID_ANY, u"Apply", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.btnApply = wx.Button( panel, wx.ID_ANY, _(u"Apply"), wx.DefaultPosition, wx.DefaultSize, 0 )
 
         btnSizer.Add( self.btnApply, 0, wx.ALL, 5 )
 
@@ -131,7 +131,7 @@ class PFGlobalPref ( PreferenceView):
         else:
             txt = "None"
 
-        self.stPSAutoDetected.SetLabel("Auto-detected: " + txt)
+        self.stPSAutoDetected.SetLabel(_("Auto-detected: ") + txt)
         self.stPSAutoDetected.Disable()
 
         cChar = service.Character.getInstance()

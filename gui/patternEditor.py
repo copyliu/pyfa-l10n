@@ -22,7 +22,7 @@ import bitmapLoader
 import service
 from wx.lib.intctrl import IntCtrl
 from gui.utils.clipboard import toClipboard, fromClipboard
-
+_ = wx.GetTranslation
 ###########################################################################
 ## Class DmgPatternEditorDlg
 ###########################################################################
@@ -30,7 +30,7 @@ from gui.utils.clipboard import toClipboard, fromClipboard
 class DmgPatternEditorDlg (wx.Dialog):
 
     def __init__(self, parent):
-        wx.Dialog.__init__ (self, parent, id = wx.ID_ANY, title = u"Damage Pattern Editor", size = wx.Size( 400,240 ))
+        wx.Dialog.__init__ (self, parent, id = wx.ID_ANY, title = _(u"Damage Pattern Editor"), size = wx.Size( 400,240 ))
 
         self.block = False
         self.SetSizeHintsSz(wx.DefaultSize, wx.DefaultSize)
@@ -44,7 +44,7 @@ class DmgPatternEditorDlg (wx.Dialog):
         self.choices = cDP.getDamagePatternList()
         # Remove "Selected Ammo" Damage Pattern
         for dp in self.choices:
-            if dp.name == "Selected Ammo":
+            if dp.name == _("Selected Ammo"):
                 self.choices.remove(dp)
         # Sort the remaining list and continue on
         self.choices.sort(key=lambda p: p.name)
@@ -78,7 +78,7 @@ class DmgPatternEditorDlg (wx.Dialog):
                 btn.Layout()
                 setattr(self, name, btn)
                 btn.Enable(True)
-                btn.SetToolTipString("%s pattern" % name.capitalize())
+                btn.SetToolTipString(_("%s pattern") % name.capitalize())
                 headerSizer.Add(btn, 0, wx.ALIGN_CENTER_VERTICAL)
 
 
@@ -160,7 +160,7 @@ class DmgPatternEditorDlg (wx.Dialog):
                 btn.Layout()
                 setattr(self, name, btn)
                 btn.Enable(True)
-                btn.SetToolTipString("%s patterns %s clipboard" % (name, direction) )
+                btn.SetToolTipString(_("%s patterns %s clipboard") % (name, direction) )
                 footerSizer.Add(btn, 0, wx.ALIGN_CENTER_HORIZONTAL | wx.ALIGN_RIGHT)
 
         self.Layout()
@@ -251,7 +251,7 @@ class DmgPatternEditorDlg (wx.Dialog):
         if p is None:
             return
 
-        if p.name == "Uniform" or p.name == "Selected Ammo":
+        if p.name == _("Uniform") or p.name == _("Selected Ammo"):
             self.restrict()
         else:
             self.unrestrict()
@@ -301,11 +301,11 @@ class DmgPatternEditorDlg (wx.Dialog):
         p = self.getActivePattern()
         for pattern in self.choices:
             if pattern.name == newName and p != pattern:
-                self.stPercentages.SetLabel("Name already used, please pick another")
+                self.stPercentages.SetLabel(_("Name already used, please pick another"))
                 return
 
         if newName == "":
-            self.stPercentages.SetLabel("Invalid name.")
+            self.stPercentages.SetLabel(_("Invalid name."))
             return
 
         cDP = service.DamagePattern.getInstance()
@@ -354,11 +354,11 @@ class DmgPatternEditorDlg (wx.Dialog):
         if text:
             sDP = service.DamagePattern.getInstance()
             sDP.importPatterns(text)
-            self.stPercentages.SetLabel("Patterns imported from clipboard")
+            self.stPercentages.SetLabel(_("Patterns imported from clipboard"))
         else:
-            self.stPercentages.SetLabel("Could not import from clipboard")
+            self.stPercentages.SetLabel(_("Could not import from clipboard"))
 
     def exportPatterns(self, event):
         sDP = service.DamagePattern.getInstance()
         toClipboard( sDP.exportPatterns() )
-        self.stPercentages.SetLabel("Patterns exported to clipboard")
+        self.stPercentages.SetLabel(_("Patterns exported to clipboard"))

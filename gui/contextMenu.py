@@ -18,7 +18,7 @@
 #===============================================================================
 
 import wx
-
+_ = wx.GetTranslation
 class ContextMenu(object):
     menus = []
     @classmethod

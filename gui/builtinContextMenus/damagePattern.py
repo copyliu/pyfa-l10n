@@ -4,7 +4,7 @@ import service
 import gui.globalEvents as GE
 import wx
 from gui import bitmapLoader
-
+_ = wx.GetTranslation
 class DamagePattern(ContextMenu):
     def __init__(self):
         self.mainFrame = gui.mainFrame.MainFrame.getInstance()
@@ -15,8 +15,8 @@ class DamagePattern(ContextMenu):
     def getText(self, itmContext, selection):
         sDP = service.DamagePattern.getInstance()
         self.patterns = sDP.getDamagePatternList()
-        self.patterns.sort( key=lambda p: (p.name in ["Selected Ammo",
-                            "Uniform"], p.name) )
+        self.patterns.sort( key=lambda p: (p.name in [_("Selected Ammo"),
+                            _("Uniform")], p.name) )
         m = map(lambda p: p.name, self.patterns)
         return m
 

@@ -90,4 +90,4 @@ def getImage(name, location):
     if os.path.exists(path):
         return wx.Image(path)
     else:
-        print "Missing icon file: {0}".format(filename)
+        print _("Missing icon file: {0}").format(filename)

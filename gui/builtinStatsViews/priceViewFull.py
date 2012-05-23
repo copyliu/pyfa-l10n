@@ -23,7 +23,7 @@ from gui import builtinStatsViews
 from gui import bitmapLoader
 from gui.utils.numberFormatter import formatAmount
 import service
-
+_ = wx.GetTranslation
 class PriceViewFull(StatsView):
     name = "priceViewFull"
     def __init__(self, parent):
@@ -47,13 +47,13 @@ class PriceViewFull(StatsView):
                 self._timer.Stop()
                 self.refreshPanel(self.fit)
             else:
-                self.labelEMStatus.SetLabel("Prices update retry in: %d seconds" %(self._timerRunsBeforeUpdate - self._timerRuns))
+                self.labelEMStatus.SetLabel(_("Prices update retry in: %d seconds") %(self._timerRunsBeforeUpdate - self._timerRuns))
                 self._timerRuns += 1
         if self._timerIdUpdate == event.GetId():
             self._timerUpdate.Stop()
             self.labelEMStatus.SetLabel("")
     def getHeaderText(self, fit):
-        return "Price"
+        return _("Price")
 
     def getTextExtentW(self, text):
         width, height = self.parent.GetTextExtent( text )
@@ -107,7 +107,7 @@ class PriceViewFull(StatsView):
                     self._timer.Stop()
             cMarket = service.Market.getInstance()
             cMarket.getPrices(typeIDs, self.processPrices)
-            self.labelEMStatus.SetLabel("Updating prices...")
+            self.labelEMStatus.SetLabel(_("Updating prices..."))
             if not self._timerUpdate:
                 self._timerUpdate = wx.Timer(self.parent, self._timerIdUpdate)
             if self._timerUpdate:

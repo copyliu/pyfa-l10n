@@ -24,6 +24,7 @@ import gui.marketBrowser as mb
 from gui.builtinViewColumns.state import State
 from gui.contextMenu import ContextMenu
 import globalEvents as GE
+_ = wx.GetTranslation
 class ImplantView(d.Display):
     DEFAULT_COLS = ["State",
                     "attr:implantness",
@@ -91,7 +92,7 @@ class ImplantView(d.Display):
         trigger = cFit.addImplant(fitID, event.itemID)
         if trigger:
             wx.PostEvent(self.mainFrame, GE.FitChanged(fitID=fitID))
-            self.mainFrame.additionsPane.select("Implants")
+            self.mainFrame.additionsPane.select(_("Implants"))
 
         event.Skip()
 

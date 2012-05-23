@@ -23,7 +23,7 @@ import bitmapLoader
 import gui.mainFrame
 import gui.graphFrame
 import gui.globalEvents as GE
-
+_ = wx.GetTranslation
 class MainMenuBar(wx.MenuBar):
     def __init__(self):
         self.characterEditorId = wx.NewId()
@@ -38,15 +38,15 @@ class MainMenuBar(wx.MenuBar):
 
         # File menu
         fileMenu = wx.Menu()
-        self.Append(fileMenu, "&File")
+        self.Append(fileMenu, _("&File"))
 
-        fileMenu.Append(self.mainFrame.addPageId, "&New Tab\tCTRL+T", "Open a new fitting tab")
-        fileMenu.Append(self.mainFrame.closePageId, "&Close Tab\tCTRL+W", "Close the current fit")
+        fileMenu.Append(self.mainFrame.addPageId, _("&New Tab\tCTRL+T"), _("Open a new fitting tab"))
+        fileMenu.Append(self.mainFrame.closePageId, _("&Close Tab\tCTRL+W"), _("Close the current fit"))
         fileMenu.AppendSeparator()
 
-        fileMenu.Append(self.backupFitsId, "&Backup fits", "Backup all fittings to a XML file")
-        fileMenu.Append(wx.ID_OPEN, "&Import\tCTRL+O", "Import a fit into pyfa.")
-        fileMenu.Append(wx.ID_SAVEAS, "&Export\tCTRL+S", "Export the fit to another format.")
+        fileMenu.Append(self.backupFitsId, _("&Backup fits"), _("Backup all fittings to a XML file"))
+        fileMenu.Append(wx.ID_OPEN, _("&Import\tCTRL+O"), _("Import a fit into pyfa."))
+        fileMenu.Append(wx.ID_SAVEAS, _("&Export\tCTRL+S"), _("Export the fit to another format."))
         fileMenu.AppendSeparator()
 
         fileMenu.Append(wx.ID_EXIT)
@@ -54,26 +54,26 @@ class MainMenuBar(wx.MenuBar):
 
         # Edit menu
         editMenu = wx.Menu()
-        self.Append(editMenu, "&Edit")
+        self.Append(editMenu, _("&Edit"))
 
         #editMenu.Append(wx.ID_UNDO)
         #editMenu.Append(wx.ID_REDO)
 
 
-        copyText = "&To Clipboard" + ("\tCTRL+C" if 'wxMSW' in wx.PlatformInfo else "")
-        pasteText = "&From Clipboard" + ("\tCTRL+V" if 'wxMSW' in wx.PlatformInfo else "")
-        editMenu.Append(wx.ID_COPY, copyText, "Export a fit to the clipboard")
-        editMenu.Append(wx.ID_PASTE, pasteText, "Import a fit from the clipboard")
+        copyText = _("&To Clipboard") + (_("\tCTRL+C") if 'wxMSW' in wx.PlatformInfo else "")
+        pasteText = _("&From Clipboard") + (_("\tCTRL+V") if 'wxMSW' in wx.PlatformInfo else "")
+        editMenu.Append(wx.ID_COPY, copyText, _("Export a fit to the clipboard"))
+        editMenu.Append(wx.ID_PASTE, pasteText, _("Import a fit from the clipboard"))
 
         # Character menu
         windowMenu = wx.Menu()
-        self.Append(windowMenu, "&Window")
+        self.Append(windowMenu, _("&Window"))
 
-        charEditItem = wx.MenuItem(windowMenu, self.characterEditorId, "&Character Editor\tCTRL+E")
+        charEditItem = wx.MenuItem(windowMenu, self.characterEditorId, _("&Character Editor\tCTRL+E"))
         charEditItem.SetBitmap(bitmapLoader.getBitmap("character_small", "icons"))
         windowMenu.AppendItem(charEditItem)
 
-        damagePatternEditItem = wx.MenuItem(windowMenu, self.damagePatternEditorId, "Damage Pattern Editor\tCTRL+D")
+        damagePatternEditItem = wx.MenuItem(windowMenu, self.damagePatternEditorId, _("Damage Pattern Editor\tCTRL+D"))
         damagePatternEditItem.SetBitmap(bitmapLoader.getBitmap("damagePattern_small", "icons"))
         windowMenu.AppendItem(damagePatternEditItem)
 
@@ -84,18 +84,18 @@ class MainMenuBar(wx.MenuBar):
         #=======================================================================
         # DISABLED FOR RC2 Release
         #
-        preferencesItem = wx.MenuItem(windowMenu, self.preferencesId, "Preferences\tCTRL+P")
+        preferencesItem = wx.MenuItem(windowMenu, self.preferencesId, _("Preferences\tCTRL+P"))
         preferencesItem.SetBitmap(bitmapLoader.getBitmap("preferences_small", "icons"))
         windowMenu.AppendItem(preferencesItem)
         #=======================================================================
 
         # Help menu
         helpMenu = wx.Menu()
-        self.Append(helpMenu, "&Help")
+        self.Append(helpMenu, _("&Help"))
         helpMenu.Append(wx.ID_ABOUT)
 
         if config.debug:
-            helpMenu.Append( self.mainFrame.widgetInspectMenuID, "Open Widgets Inspect tool", "Open Widgets Inspect tool")
+            helpMenu.Append( self.mainFrame.widgetInspectMenuID, _("Open Widgets Inspect tool"), _("Open Widgets Inspect tool"))
 
 
 

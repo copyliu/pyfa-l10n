@@ -5,7 +5,7 @@ import wx
 from gui import bitmapLoader
 from eos.types import Hardpoint
 import gui.globalEvents as GE
-
+_ = wx.GetTranslation
 class ModuleAmmoPicker(ContextMenu):
     def __init__(self):
         self.mainFrame = gui.mainFrame.MainFrame.getInstance()
@@ -72,7 +72,7 @@ class ModuleAmmoPicker(ContextMenu):
         totalDamage = 0
         # Fill them with the data about charge
         for damageType in self.DAMAGE_TYPES:
-            currentDamage = charge.getAttribute("{0}Damage".format(damageType))
+            currentDamage = charge.getAttribute(_("{0}Damage").format(damageType))
             damageMap[damageType] = currentDamage
             totalDamage += currentDamage
         # Detect type of ammo
@@ -99,7 +99,7 @@ class ModuleAmmoPicker(ContextMenu):
 
     def addCharge(self, menu, charge):
         id = wx.NewId()
-        name = charge.name if charge is not None else "Empty"
+        name = charge.name if charge is not None else _("Empty")
         self.chargeIds[id] = charge
         item = wx.MenuItem(menu, id, name)
         item.charge = charge
@@ -124,7 +124,7 @@ class ModuleAmmoPicker(ContextMenu):
         hardpoint = self.module.hardpoint
         # Make sure we do not consider mining turrets as combat turrets
         if hardpoint == Hardpoint.TURRET and self.module.getModifiedItemAttr("miningAmount") is None:
-            self.addSeperator(m, "Long Range")
+            self.addSeperator(m, _("Long Range"))
             items = []
             range = None
             nameBase = None
@@ -135,7 +135,7 @@ class ModuleAmmoPicker(ContextMenu):
                 currRange = charge.getAttribute("weaponRangeMultiplier")
                 if nameBase is None or range != currRange or nameBase != currBase:
                     if sub is not None:
-                        self.addSeperator(sub, "More Damage")
+                        self.addSeperator(sub, _("More Damage"))
 
                     sub = None
                     base = charge
@@ -147,18 +147,18 @@ class ModuleAmmoPicker(ContextMenu):
                     if sub is None:
                         sub = wx.Menu()
                         sub.Bind(wx.EVT_MENU, self.handleAmmoSwitch)
-                        self.addSeperator(sub, "Less Damage")
+                        self.addSeperator(sub, _("Less Damage"))
                         item.SetSubMenu(sub)
                         sub.AppendItem(self.addCharge(sub, base))
 
                     sub.AppendItem(self.addCharge(sub, charge))
 
             if sub is not None:
-                self.addSeperator(sub, "More Damage")
+                self.addSeperator(sub, _("More Damage"))
             for item in items:
                 m.AppendItem(item)
 
-            self.addSeperator(m, "Short Range")
+            self.addSeperator(m, _("Short Range"))
         elif hardpoint == Hardpoint.MISSILE:
             self.charges.sort(key=self.missileSorter)
             type = None
@@ -169,7 +169,7 @@ class ModuleAmmoPicker(ContextMenu):
 
                 if currType != type or type is None:
                     if sub is not None:
-                        self.addSeperator(sub, "More Damage")
+                        self.addSeperator(sub, _("More Damage"))
 
                     type = currType
                     item = wx.MenuItem(m, wx.ID_ANY, type.capitalize())
@@ -179,7 +179,7 @@ class ModuleAmmoPicker(ContextMenu):
 
                     sub = wx.Menu()
                     sub.Bind(wx.EVT_MENU, self.handleAmmoSwitch)
-                    self.addSeperator(sub, "Less Damage")
+                    self.addSeperator(sub, _("Less Damage"))
                     item.SetSubMenu(sub)
                     m.AppendItem(item)
 
@@ -191,7 +191,7 @@ class ModuleAmmoPicker(ContextMenu):
             if defender is not None:
                 m.AppendItem(self.addCharge(sub, defender))
             if sub is not None:
-                self.addSeperator(sub, "More Damage")
+                self.addSeperator(sub, _("More Damage"))
         else:
             self.charges.sort(key=self.nameSorter)
             for charge in self.charges:

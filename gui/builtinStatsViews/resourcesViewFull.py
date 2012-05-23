@@ -26,14 +26,14 @@ from gui import pygauge as PG
 from eos.types import Hardpoint
 
 from gui.utils.numberFormatter import formatAmount
-
+_ = wx.GetTranslation
 class ResourcesViewFull(StatsView):
     name = "resourcesViewFull"
     def __init__(self, parent):
         StatsView.__init__(self)
         self.parent = parent
     def getHeaderText(self, fit):
-        return "Resources"
+        return _("Resources")
 
     def getTextExtentW(self, text):
         width, height = self.parent.GetTextExtent( text )
@@ -60,7 +60,7 @@ class ResourcesViewFull(StatsView):
         base = sizerResources
 
         #Turrets & launcher hardslots display
-        tooltipText = {"turret":"Turret hardpoints", "launcher":"Launcher hardpoints", "drones":"Drones active", "calibration":"Calibration"}
+        tooltipText = {"turret":_("Turret hardpoints"), "launcher":_("Launcher hardpoints"), "drones":_("Drones active"), "calibration":_("Calibration")}
         for type in ("turret", "launcher", "drones", "calibration"):
             box = wx.BoxSizer(wx.HORIZONTAL)
 
@@ -72,7 +72,7 @@ class ResourcesViewFull(StatsView):
 
             sizer.Add(box, 0, wx.ALIGN_CENTER)
 
-            suffix = {'turret':'Hardpoints', 'launcher':'Hardpoints', 'drones':'Active', 'calibration':'Points'}
+            suffix = {'turret':_('Hardpoints'), 'launcher':_('Hardpoints'), 'drones':_('Active'), 'calibration':_('Points')}
             lbl = wx.StaticText(parent, wx.ID_ANY, "0")
             setattr(self, "label%sUsed%s%s" % (panel.capitalize(), type.capitalize(), suffix[type].capitalize()), lbl)
             box.Add(lbl, 0, wx.ALIGN_CENTER | wx.LEFT, 5)
@@ -85,7 +85,7 @@ class ResourcesViewFull(StatsView):
 
 
         #PG, Cpu & drone stuff
-        tooltipText = {"cpu":"CPU", "pg":"PowerGrid", "droneBay":"Drone bay", "droneBandwidth":"Drone bandwidth"}
+        tooltipText = {"cpu":"CPU", "pg":_("PowerGrid"), "droneBay":_("Drone bay"), "droneBandwidth":_("Drone bandwidth")}
         for i, group in enumerate((("cpu", "pg"), ("droneBay", "droneBandwidth"))):
             main = wx.BoxSizer(wx.VERTICAL)
             base.Add(main, 1 , wx.ALIGN_CENTER)
@@ -117,7 +117,7 @@ class ResourcesViewFull(StatsView):
                 setattr(self, "label%sTotal%s" % (panel.capitalize(), capitalizedType), lbl)
                 absolute.Add(lbl, 0, wx.ALIGN_LEFT)
 
-                units = {"cpu":" tf", "pg":" MW", "droneBandwidth":" mbit/s", "droneBay":u" m\u00B3"}
+                units = {"cpu":_(" tf"), "pg":_(" MW"), "droneBandwidth":_(" mbit/s"), "droneBay":u" m\u00B3"}
                 lbl = wx.StaticText(parent, wx.ID_ANY, "%s" % units[type])
                 absolute.Add(lbl, 0, wx.ALIGN_LEFT)
 

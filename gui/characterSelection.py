@@ -23,7 +23,7 @@ from gui import characterEditor as ce
 from gui import bitmapLoader
 import gui.globalEvents as GE
 import gui.mainFrame
-
+_ = wx.GetTranslation
 class CharacterSelection(wx.Panel):
     def __init__(self, parent):
         self.mainFrame = gui.mainFrame.MainFrame.getInstance()
@@ -32,7 +32,7 @@ class CharacterSelection(wx.Panel):
         mainSizer = wx.BoxSizer(wx.HORIZONTAL)
         self.SetSizer(mainSizer)
 
-        mainSizer.Add(wx.StaticText(self, wx.ID_ANY, "Character: "), 0, wx.CENTER | wx.TOP | wx.RIGHT | wx.LEFT, 3)
+        mainSizer.Add(wx.StaticText(self, wx.ID_ANY, _("Character: ")), 0, wx.CENTER | wx.TOP | wx.RIGHT | wx.LEFT, 3)
 
         self.charChoice = wx.Choice(self)
         mainSizer.Add(self.charChoice, 1, wx.ALIGN_CENTER_VERTICAL | wx.TOP | wx.RIGHT | wx.LEFT, 3)
@@ -117,12 +117,12 @@ class CharacterSelection(wx.Panel):
         newCharID = fit.character.ID if fit is not None else None
         if event.fitID is None:
             self.skillReqsStaticBitmap.SetBitmap(self.cleanSkills)
-            self.skillReqsStaticBitmap.SetToolTipString("No active fit.")
+            self.skillReqsStaticBitmap.SetToolTipString(_("No active fit."))
         else:
             sCharacter = service.Character.getInstance()
             reqs = sCharacter.checkRequirements(fit)
             if len(reqs) == 0:
-                tip = "All prerequisites have been met"
+                tip = _("All prerequisites have been met")
                 self.skillReqsStaticBitmap.SetBitmap(self.greenSkills)
             else:
                 tip = self._buildSkillsTooltip(reqs)

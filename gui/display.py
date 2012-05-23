@@ -23,7 +23,7 @@ import gui.mainFrame
 
 from gui.viewColumn import ViewColumn
 from gui.cachingImageList import CachingImageList
-
+_ = wx.GetTranslation
 class Display(wx.ListCtrl):
     def __init__(self, parent, size = wx.DefaultSize, style = 0):
 

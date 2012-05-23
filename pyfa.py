@@ -81,12 +81,9 @@ if __name__ == "__main__":
     langid = wx.LANGUAGE_DEFAULT    # use OS default; or use LANGUAGE_JAPANESE, etc.
     domain = "pyfa"             # the translation file is messages.mo
     # Set locale for wxWidgets
-    mylocale = wx.Locale(langid)
-    mylocale.AddCatalogLookupPathPrefix("locale")
-    mylocale.AddCatalog(domain)
-    #_ = lambda s: wx.GetTranslation(s).encode('utf-8')
-    _ = wx.GetTranslation
-    print _("English")
+    locale = wx.Locale(langid)
+    locale.AddCatalogLookupPathPrefix("locale")
+    locale.AddCatalog(domain)
     #Make sure the saveddata db exists
     if not os.path.exists(config.savePath):
         os.mkdir(config.savePath)

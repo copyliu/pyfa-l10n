@@ -2,7 +2,7 @@ from gui.contextMenu import ContextMenu
 from gui.itemStats import ItemStatsDialog
 import gui.mainFrame
 import service
-
+_ = wx.GetTranslation
 class MarketJump(ContextMenu):
     def __init__(self):
         self.mainFrame = gui.mainFrame.MainFrame.getInstance()
@@ -21,7 +21,7 @@ class MarketJump(ContextMenu):
         return doit
 
     def getText(self, itmContext, selection):
-        return "{0} Market Group".format(itmContext if itmContext is not None else "Item")
+        return _("{0} Market Group").format(itmContext if itmContext is not None else _("Item"))
 
     def activate(self, fullContext, selection, i):
         srcContext = fullContext[0]

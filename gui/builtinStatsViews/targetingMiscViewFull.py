@@ -21,7 +21,7 @@ import wx
 from gui.statsView import StatsView
 from gui import builtinStatsViews
 from gui.utils.numberFormatter import formatAmount
-
+_ = wx.GetTranslation
 class TargetingMiscViewFull(StatsView):
     name = "targetingmiscViewFull"
     def __init__(self, parent):
@@ -29,7 +29,7 @@ class TargetingMiscViewFull(StatsView):
         self.parent = parent
         self._cachedValues = []
     def getHeaderText(self, fit):
-        return "Targeting && Misc"
+        return _("Targeting && Misc")
 
     def getTextExtentW(self, text):
         width, height = self.parent.GetTextExtent( text )
@@ -51,11 +51,11 @@ class TargetingMiscViewFull(StatsView):
 
         gridTargetingMisc.Add(gridTargeting, 0, wx.ALIGN_LEFT | wx.ALL, 5)
 
-        labels = (("Targets", "Targets", ""),
-                  ("Range", "Range", "km"),
-                  ("Scan res.", "ScanRes", "mm"),
-                  ("Sensor str.", "SensorStr", ""),
-                  ("Drone range", "CtrlRange", "km"))
+        labels = ((_("Targets"), "Targets", ""),
+                  (_("Range"), "Range", "km"),
+                  (_("Scan res."), "ScanRes", "mm"),
+                  (_("Sensor str."), "SensorStr", ""),
+                  (_("Drone range"), "CtrlRange", "km"))
 
         for header, labelShort, unit in labels:
             gridTargeting.Add(wx.StaticText(contentPanel, wx.ID_ANY, "%s: " % header), 0, wx.ALIGN_LEFT)
@@ -75,11 +75,11 @@ class TargetingMiscViewFull(StatsView):
         gridMisc.AddGrowableCol(1)
         gridTargetingMisc.Add(gridMisc,0 , wx.ALIGN_LEFT | wx.ALL, 5)
 
-        labels = (("Speed", "Speed", "m/s"),
-                  ("Align time", "AlignTime", "s"),
-                  ("Signature", "SigRadius", "m"),
-                  ("Warp Speed", "WarpSpeed", "AU/s"),
-                  ("Cargo", "Cargo", u"m\u00B3"))
+        labels = ((_("Speed"), "Speed", "m/s"),
+                  (_("Align time"), "AlignTime", "s"),
+                  (_("Signature"), "SigRadius", "m"),
+                  (_("Warp Speed"), "WarpSpeed", "AU/s"),
+                  (_("Cargo"), "Cargo", u"m\u00B3"))
 
         for header, labelShort, unit in labels:
             gridMisc.Add(wx.StaticText(contentPanel, wx.ID_ANY, "%s: " % header), 0, wx.ALIGN_LEFT)
@@ -122,7 +122,7 @@ class TargetingMiscViewFull(StatsView):
                 # Tooltip stuff
                 if fit:
                     if labelName == "labelScanRes":
-                        lockTime = "%s\n" % "Lock Times".center(30)
+                        lockTime = "%s\n" % _("Lock Times").center(30)
                         for size, radius in RADII:
                             left = "%.1fs" % fit.calculateLockTime(radius)
                             right = "%s [%d]" % (size, radius)
@@ -130,11 +130,11 @@ class TargetingMiscViewFull(StatsView):
                         # print lockTime # THIS IS ALIGNED!
                         label.SetToolTip(wx.ToolTip(lockTime))
                     elif labelName == "labelSensorStr":
-                        label.SetToolTip(wx.ToolTip("Type: %s - %.1f" % (fit.scanType, value)))
+                        label.SetToolTip(wx.ToolTip(_("Type: %s - %.1f") % (fit.scanType, value)))
                     elif labelName == "labelFullSigRadius":
-                        label.SetToolTip(wx.ToolTip("Probe Size: %.3f" % (fit.probeSize or 0) ))
+                        label.SetToolTip(wx.ToolTip(_("Probe Size: %.3f") % (fit.probeSize or 0) ))
                     elif labelName == "labelFullWarpSpeed":
-                        label.SetToolTip(wx.ToolTip("Max Warp Distance: %.1f AU" % fit.maxWarpDistance))
+                        label.SetToolTip(wx.ToolTip(_("Max Warp Distance: %.1f AU") % fit.maxWarpDistance))
                     else:
                         label.SetToolTip(wx.ToolTip("%.1f" % value))
                 else:
@@ -142,7 +142,7 @@ class TargetingMiscViewFull(StatsView):
                 self._cachedValues[counter] = value
             elif labelName == "labelFullWarpSpeed":
                 if fit:
-                    label.SetToolTip(wx.ToolTip("Max Warp Distance: %.1f AU" % fit.maxWarpDistance))
+                    label.SetToolTip(wx.ToolTip(_("Max Warp Distance: %.1f AU") % fit.maxWarpDistance))
                 else:
                     label.SetToolTip(wx.ToolTip(""))
 

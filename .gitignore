@@ -12,3 +12,5 @@
 #Patch files
 *.patch
 #Personal
+
+.idea/

@@ -29,13 +29,13 @@ from gui.contextMenu import ContextMenu
 from wx.lib.buttons import GenBitmapButton
 import sys
 import gui.globalEvents as GE
-
+_ = wx.GetTranslation
 CharListUpdated, CHAR_LIST_UPDATED = wx.lib.newevent.NewEvent()
 CharChanged, CHAR_CHANGED = wx.lib.newevent.NewEvent()
 
 class CharacterEditor(wx.Frame):
     def __init__(self, parent):
-        wx.Frame.__init__ (self, parent, id=wx.ID_ANY, title=u"pyfa: Character Editor", pos=wx.DefaultPosition,
+        wx.Frame.__init__ (self, parent, id=wx.ID_ANY, title=_(u"pyfa: Character Editor"), pos=wx.DefaultPosition,
                             size=wx.Size(641, 600), style=wx.DEFAULT_FRAME_STYLE|wx.FRAME_FLOAT_ON_PARENT|wx.TAB_TRAVERSAL)
 
         i = wx.IconFromBitmap(bitmapLoader.getBitmap("character_small", "icons"))
@@ -84,7 +84,7 @@ class CharacterEditor(wx.Frame):
             btn.SetMinSize(size)
             btn.SetMaxSize(size)
 
-            btn.SetToolTipString("%s character" % name.capitalize())
+            btn.SetToolTipString(_("%s character") % name.capitalize())
             btn.Bind(wx.EVT_BUTTON, getattr(self, name))
             setattr(self, "btn%s" % name.capitalize(), btn)
             self.navSizer.Add(btn, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 2)
@@ -102,13 +102,13 @@ class CharacterEditor(wx.Frame):
         #=======================================================================
         self.aview = APIView(self.viewsNBContainer)
 
-        self.viewsNBContainer.AddPage(self.sview, "Skills")
+        self.viewsNBContainer.AddPage(self.sview, _("Skills"))
 
         #=======================================================================
         # Disabled for RC2
         # self.viewsNBContainer.AddPage(self.iview, "Implants")
         #=======================================================================
-        self.viewsNBContainer.AddPage(self.aview, "API")
+        self.viewsNBContainer.AddPage(self.aview, _("API"))
 
         mainSizer.Add(self.viewsNBContainer, 1, wx.EXPAND | wx.ALL, 5)
 
@@ -127,7 +127,7 @@ class CharacterEditor(wx.Frame):
         self.Centre(wx.BOTH)
 
         charID = self.getActiveCharacter()
-        if cChar.getCharName(charID) in ("All 0", "All 5"):
+        if cChar.getCharName(charID) in (_("All 0"),_( "All 5")):
             self.restrict()
 
         self.registerEvents()
@@ -177,7 +177,7 @@ class CharacterEditor(wx.Frame):
         self.sview.populateSkillTree()
         cChar = service.Character.getInstance()
         charID = self.getActiveCharacter()
-        if cChar.getCharName(charID) in ("All 0", "All 5"):
+        if cChar.getCharName(charID) in (_("All 0"), _("All 5")):
             self.restrict()
         else:
             self.unrestrict()
@@ -196,13 +196,13 @@ class CharacterEditor(wx.Frame):
         id = self.skillTreeChoice.Append(cChar.getCharName(charID), charID)
         self.skillTreeChoice.SetSelection(id)
         self.unrestrict()
-        self.btnSave.SetLabel("Create")
+        self.btnSave.SetLabel(_("Create"))
         self.rename(None)
         self.charChanged(None)
 
     def rename(self, event):
         if event is not None:
-            self.btnSave.SetLabel("Rename")
+            self.btnSave.SetLabel(_("Rename"))
         self.skillTreeChoice.Hide()
         self.characterRename.Show()
         self.navSizer.Replace(self.skillTreeChoice, self.characterRename)
@@ -224,8 +224,8 @@ class CharacterEditor(wx.Frame):
         cChar = service.Character.getInstance()
         newName = self.characterRename.GetLineText(0)
 
-        if newName == "All 0" or newName == "All 5":
-            newName = newName + " bases are belong to us"
+        if newName == _("All 0") or newName == _("All 5"):
+            newName = newName + _(" bases are belong to us")
 
         charID = self.getActiveCharacter()
         cChar.rename(charID, newName)
@@ -251,7 +251,7 @@ class CharacterEditor(wx.Frame):
         id = self.skillTreeChoice.Append(cChar.getCharName(charID), charID)
         self.skillTreeChoice.SetSelection(id)
         self.unrestrict()
-        self.btnSave.SetLabel("Copy")
+        self.btnSave.SetLabel(_("Copy"))
         self.rename(None)
         wx.PostEvent(self, CharChanged())
 
@@ -262,7 +262,7 @@ class CharacterEditor(wx.Frame):
         self.skillTreeChoice.Delete(sel)
         self.skillTreeChoice.SetSelection(sel - 1)
         newSelection = self.getActiveCharacter()
-        if cChar.getCharName(newSelection) in ("All 0", "All 5"):
+        if cChar.getCharName(newSelection) in (_("All 0"), _("All 5")):
             self.restrict()
 
         wx.PostEvent(self, CharChanged())
@@ -290,12 +290,12 @@ class SkillTreeView (wx.Panel):
         tree.SetImageList(self.imageList)
         self.skillBookImageId = self.imageList.Add(bitmapLoader.getBitmap("skill_small", "icons"))
 
-        tree.AddColumn("Skill")
-        tree.AddColumn("Level")
+        tree.AddColumn(_("Skill"))
+        tree.AddColumn(_("Level"))
         tree.SetMainColumn(0)
 
-        self.root = tree.AddRoot("Skills")
-        tree.SetItemText(self.root, "Levels", 1)
+        self.root = tree.AddRoot(_("Skills"))
+        tree.SetItemText(self.root, _("Levels"), 1)
 
         tree.SetColumnWidth(0, 500)
 
@@ -313,13 +313,13 @@ class SkillTreeView (wx.Panel):
         self.levelIds = {}
 
         idUnlearned = wx.NewId()
-        self.levelIds[idUnlearned] = "Not learned"
-        self.levelChangeMenu.Append(idUnlearned, "Unlearn")
+        self.levelIds[idUnlearned] =_( "Not learned")
+        self.levelChangeMenu.Append(idUnlearned, _("Unlearn"))
 
         for level in xrange(6):
             id = wx.NewId()
             self.levelIds[id] = level
-            self.levelChangeMenu.Append(id, "Level %d" % level)
+            self.levelChangeMenu.Append(id, _("Level %d") % level)
 
         self.levelChangeMenu.Bind(wx.EVT_MENU, self.changeLevel)
         self.SetSizer(pmainSizer)
@@ -354,7 +354,7 @@ class SkillTreeView (wx.Panel):
                 iconId = self.skillBookImageId
                 childId = tree.AppendItem(root, name, iconId, data=wx.TreeItemData(id))
                 level = cChar.getSkillLevel(char, id)
-                tree.SetItemText(childId, "Level %d" % level if isinstance(level, int) else level, 1)
+                tree.SetItemText(childId, _("Level %d") % level if isinstance(level, int) else level, 1)
 
             tree.SortChildren(root)
 
@@ -370,7 +370,7 @@ class SkillTreeView (wx.Panel):
         cChar = service.Character.getInstance()
         charID = self.Parent.Parent.getActiveCharacter()
         cMarket = service.Market.getInstance()
-        if cChar.getCharName(charID) not in ("All 0", "All 5"):
+        if cChar.getCharName(charID) not in (_("All 0"), _("All 5")):
             self.levelChangeMenu.selection = cMarket.getItem(self.skillTreeListCtrl.GetPyData(item))
             self.PopupMenu(self.levelChangeMenu)
         else:
@@ -385,7 +385,7 @@ class SkillTreeView (wx.Panel):
             selection = self.skillTreeListCtrl.GetSelection()
             skillID = self.skillTreeListCtrl.GetPyData(selection)
 
-            self.skillTreeListCtrl.SetItemText(selection, "Level %d" % level if isinstance(level, int) else level, 1)
+            self.skillTreeListCtrl.SetItemText(selection, _("Level %d") % level if isinstance(level, int) else level, 1)
             cChar.changeLevel(charID, skillID, level)
 
         event.Skip()
@@ -414,7 +414,7 @@ class ImplantsTreeView (wx.Panel):
         availableSizer.Add(self.availableImplantsSearch, 0, wx.BOTTOM | wx.EXPAND, 2)
 
         self.availableImplantsTree = wx.TreeCtrl(self, wx.ID_ANY, style=wx.TR_DEFAULT_STYLE | wx.TR_HIDE_ROOT)
-        root = self.availableRoot = self.availableImplantsTree.AddRoot("Available")
+        root = self.availableRoot = self.availableImplantsTree.AddRoot(_("Available"))
         self.availableImplantsImageList = wx.ImageList(16, 16)
         self.availableImplantsTree.SetImageList(self.availableImplantsImageList)
 
@@ -465,7 +465,7 @@ class ImplantsTreeView (wx.Panel):
         cChar = service.Character.getInstance()
         charID = self.Parent.Parent.getActiveCharacter()
         name = cChar.getCharName(charID)
-        if name == "All 0" or name == "All 5":
+        if name == _("All 0") or name == _("All 5"):
             self.Enable(False)
         else:
             self.Enable(True)
@@ -574,7 +574,7 @@ class APIView (wx.Panel):
         pmainSizer.Add(self.charList, 0, wx.EXPAND| wx.ALL, 5)
 
         info = wx.ListItem()
-        info.m_text = "Character"
+        info.m_text = _("Character")
         info.m_mask = wx.LIST_MASK_TEXT
 
         self.charList.InsertColumnInfo(0, info)
@@ -618,7 +618,7 @@ class APIView (wx.Panel):
     def fetchCharList(self, event):
         self.stStatus.SetLabel("")
         if self.inputID.GetLineText(0) == "" or self.inputKey.GetLineText(0) == "":
-            self.stStatus.SetLabel("Invalid keyID or vCode!")
+            self.stStatus.SetLabel(_("Invalid keyID or vCode!"))
             return
 
         cChar = service.Character.getInstance()
@@ -626,7 +626,7 @@ class APIView (wx.Panel):
         self.charList.DeleteAllItems()
 
         if not list:
-            self.stStatus.SetLabel("Unable to fetch characters list from EVE API!")
+            self.stStatus.SetLabel(_("Unable to fetch characters list from EVE API!"))
             return
 
         for charName in list:
@@ -650,6 +650,6 @@ class APIView (wx.Panel):
             try:
                 cChar = service.Character.getInstance()
                 cChar.apiFetch(self.Parent.Parent.getActiveCharacter(), charName)
-                self.stStatus.SetLabel("Successfully fetched %s\'s skills from EVE API." % charName)
+                self.stStatus.SetLabel(_("Successfully fetched %s\'s skills from EVE API.") % charName)
             except:
-                self.stStatus.SetLabel("Unable to retrieve %s\'s skills!" % charName)
+                self.stStatus.SetLabel(_("Unable to retrieve %s\'s skills!") % charName)

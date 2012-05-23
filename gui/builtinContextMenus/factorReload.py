@@ -4,7 +4,7 @@ import service
 import gui.globalEvents as GE
 import wx
 from gui import bitmapLoader
-
+_ = wx.GetTranslation
 class FactorReload(ContextMenu):
     def __init__(self):
         self.mainFrame = gui.mainFrame.MainFrame.getInstance()
@@ -13,7 +13,7 @@ class FactorReload(ContextMenu):
         return srcContext in ("firepowerViewFull",) and self.mainFrame.getActiveFit() is not None
 
     def getText(self, itmContext, selection):
-        return "Factor in Reload Time"
+        return _("Factor in Reload Time")
 
     def activate(self, fullContext, selection, i):
         sFit = service.Fit.getInstance()

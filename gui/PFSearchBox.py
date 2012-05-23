@@ -2,7 +2,7 @@ import wx
 import gui.utils.colorUtils as colorUtils
 import gui.utils.drawUtils as drawUtils
 from gui import bitmapLoader
-
+_ = wx.GetTranslation
 
 SearchButton, EVT_SEARCH_BTN = wx.lib.newevent.NewEvent()
 CancelButton, EVT_CANCEL_BTN = wx.lib.newevent.NewEvent()
@@ -16,7 +16,7 @@ class PFSearchBox(wx.Window):
         self.isSearchButtonVisible = False
         self.isCancelButtonVisible = False
 
-        self.descriptiveText = "Search"
+        self.descriptiveText = _("Search")
 
         self.searchBitmap = None
         self.cancelBitmap = None

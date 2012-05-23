@@ -24,17 +24,17 @@ from eos.graph.fitDps import FitDpsGraph as FitDps
 from eos.graph import Data
 import gui.mainFrame
 import service
-
+_ = wx.GetTranslation
 class FitDpsGraph(Graph):
     propertyAttributeMap = {"angle": "maxVelocity",
                             "distance": "maxRange",
                             "signatureRadius": "signatureRadius",
                             "velocity": "maxVelocity"}
 
-    propertyLabelMap = {"angle": "Target Angle (degrees)",
-                        "distance": "Distance to Target (km)",
-                        "signatureRadius": "Target Signature Radius (m)",
-                        "velocity": "Target Velocity (m/s)"}
+    propertyLabelMap = {"angle": _("Target Angle (degrees)"),
+                        "distance": _("Distance to Target (km)"),
+                        "signatureRadius": _("Target Signature Radius (m)"),
+                        "velocity": _("Target Velocity (m/s)")}
 
     defaults = FitDps.defaults.copy()
 

@@ -25,7 +25,7 @@ import gui.shipBrowser
 import gui.globalEvents as GE
 
 from gui import characterEditor as CharEditor
-
+_ = wx.GetTranslation
 
 class GangView ( ScrolledPanel ):
 
@@ -145,7 +145,7 @@ class GangView ( ScrolledPanel ):
             stBooster.Bind(wx.EVT_LEFT_DCLICK, self.RemoveBooster)
             stBooster.Bind(wx.EVT_ENTER_WINDOW, self.OnEnterWindow)
             stBooster.Bind(wx.EVT_LEAVE_WINDOW, self.OnLeaveWindow)
-            stBooster.SetToolTip(wx.ToolTip("Double click to remove booster"))
+            stBooster.SetToolTip(wx.ToolTip(_("Double click to remove booster")))
 
         for chCharacter in self.chCharacters:
             chCharacter.Bind(wx.EVT_CHOICE, self.CharChanged)
@@ -275,35 +275,35 @@ class GangView ( ScrolledPanel ):
 
             if fleetCom:
                 fleetComName = fleetCom.ship.item.name + ": " + fleetCom.name
-                fleetComCharName = fleetCom.character.name if fleetCom.character is not None else "All 0"
+                fleetComCharName = fleetCom.character.name if fleetCom.character is not None else _("All 0")
             else:
-                fleetComName = "None"
-                fleetComCharName = "All 0"
+                fleetComName = _("None")
+                fleetComCharName =_( "All 0")
 
             if wingCom:
                 wingComName = wingCom.ship.item.name + ": " + wingCom.name
-                wingComCharName = wingCom.character.name if wingCom.character is not None else "All 0"
+                wingComCharName = wingCom.character.name if wingCom.character is not None else _("All 0")
             else:
-                wingComName = "None"
-                wingComCharName = "All 0"
+                wingComName = _("None")
+                wingComCharName = _("All 0")
 
             if squadCom:
                 squadComName = squadCom.ship.item.name + ": " + squadCom.name
-                squadComCharName = squadCom.character.name if squadCom.character is not None else "All 0"
+                squadComCharName = squadCom.character.name if squadCom.character is not None else _("All 0")
             else:
-                squadComName = "None"
-                squadComCharName = "All 0"
+                squadComName = _("None")
+                squadComCharName = _("All 0")
 
             self.UpdateFleetFitsUI( fleetComName, wingComName, squadComName, fleetComCharName, wingComCharName, squadComCharName )
             self.Enable()
 
         else:
-            fleetComName = "None"
-            fleetComCharName = "All 0"
-            wingComName = "None"
-            wingComCharName = "All 0"
-            squadComName = "None"
-            squadComCharName = "All 0"
+            fleetComName = _("None")
+            fleetComCharName = _("All 0")
+            wingComName = _("None")
+            wingComCharName = _("All 0")
+            squadComName = _("None")
+            squadComCharName =_( "All 0")
 
             self.UpdateFleetFitsUI( fleetComName, wingComName, squadComName, fleetComCharName, wingComCharName, squadComCharName )
             self.Disable()
@@ -399,5 +399,5 @@ class GangView ( ScrolledPanel ):
 #            self.Layout()
 
             self.AddCommander(draggedFit.ID, booster)
-            self.mainFrame.additionsPane.select("Fleet")
+            self.mainFrame.additionsPane.select(_("Fleet"))
 

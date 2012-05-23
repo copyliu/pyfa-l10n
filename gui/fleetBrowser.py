@@ -25,7 +25,7 @@ FleetItemCopy, EVT_FLEET_ITEM_COPY = wx.lib.newevent.NewEvent()
 FleetItemRename, EVT_FLEET_ITEM_RENAME = wx.lib.newevent.NewEvent()
 
 
-
+_ = wx.GetTranslation
 class FleetBrowser(wx.Panel):
     def __init__(self, parent):
         wx.Panel.__init__(self, parent)
@@ -78,7 +78,7 @@ class FleetBrowser(wx.Panel):
         fleetID = event.fleetID
         fleet = self.sFleet.copyFleetByID(fleetID)
 
-        fleetName = fleet.name + " Copy"
+        fleetName = fleet.name + _(" Copy")
         self.sFleet.renameFleet(fleet,fleetName)
 
         self.fleetIDMustEditName = fleet.ID
@@ -178,10 +178,10 @@ class FleetBrowserHeader (wx.Panel):
         event.Skip()
 
     def OnNewFleetItem(self, event):
-        wx.PostEvent(self.Parent, FleetItemNew(fleetName = "New Fleet"))
+        wx.PostEvent(self.Parent, FleetItemNew(fleetName = _("New Fleet")))
 
     def fbNewEnterWindow(self, event):
-        self.stStatus.SetLabel("New fleet")
+        self.stStatus.SetLabel(_("New fleet"))
         self.Parent.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
         event.Skip()
 
@@ -191,7 +191,7 @@ class FleetBrowserHeader (wx.Panel):
         event.Skip()
 
     def fbFilterEnterWindow(self, event):
-        self.stStatus.SetLabel("Filter list")
+        self.stStatus.SetLabel(_("Filter list"))
         event.Skip()
 
 
@@ -279,9 +279,9 @@ class FleetItem(SFItem.SFBrowserItem):
         fleetImg = fleetImg.AdjustChannels(1, 1, 1, 0.5)
         self.fleetEffBmp = wx.BitmapFromImage(fleetImg)
 
-        self.toolbar.AddButton(self.copyBmp, "Copy", self.CopyFleetCB)
-        self.renameBtn = self.toolbar.AddButton(self.renameBmp, "Rename", self.RenameFleetCB)
-        self.toolbar.AddButton(self.deleteBmp, "Delete", self.DeleteFleetCB)
+        self.toolbar.AddButton(self.copyBmp, _("Copy"), self.CopyFleetCB)
+        self.renameBtn = self.toolbar.AddButton(self.renameBmp, _("Rename"), self.RenameFleetCB)
+        self.toolbar.AddButton(self.deleteBmp, _("Delete"), self.DeleteFleetCB)
 
         self.editWidth = 150
         self.tcFleetName = wx.TextCtrl(self, wx.ID_ANY, "%s" % self.fleetName, wx.DefaultPosition, (self.editWidth,-1), wx.TE_PROCESS_ENTER)
@@ -414,8 +414,8 @@ class FleetItem(SFItem.SFBrowserItem):
 
         mdc.SetFont(self.fontNormal)
 
-        suffix = "%d ships" % self.fleetCount if self.fleetCount >1 else "%d ship" % self.fleetCount if self.fleetCount == 1 else "No ships"
-        fleetCount = "Fleet size: %s" % suffix
+        suffix = _("%d ships") % self.fleetCount if self.fleetCount >1 else _("%d ship") % self.fleetCount if self.fleetCount == 1 else "No ships"
+        fleetCount = _("Fleet size: %s") % suffix
         fleetCount = drawUtils.GetPartialText(mdc, fleetCount, self.toolbarx - self.textStartx - self.padding * 2 - self.thoverw)
 
         mdc.DrawText(fleetCount, self.textStartx, self.fleetCounty)

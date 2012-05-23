@@ -25,7 +25,7 @@ import gui.globalEvents as GE
 from gui.graph import Graph
 import service
 import gui.mainFrame
-
+_ = wx.GetTranslation
 enabled = True
 mplImported = False
 
@@ -47,11 +47,11 @@ class GraphFrame(wx.Frame):
             from matplotlib.figure import Figure
             enabled = True
             if mpl.__version__[0] != "1":
-                print "pyfa: Found matplotlib version ",mpl.__version__, " - activating OVER9000 workarounds"
-                print "pyfa: Recommended minimum matplotlib version is 1.0.0"
+                print _("pyfa: Found matplotlib version "),mpl.__version__, _(" - activating OVER9000 workarounds")
+                print _("pyfa: Recommended minimum matplotlib version is 1.0.0")
                 self.legendFix = True
         except:
-            print "Problems importing matplotlib; continuing without graphs"
+            print _("Problems importing matplotlib; continuing without graphs")
             enabled = False
             return
 
@@ -202,10 +202,10 @@ class GraphFrame(wx.Frame):
                 self.subplot.plot(x, y)
                 legend.append(fit.name)
             except:
-                self.SetStatusText("Invalid values in '%s'" % fit.name)
+                self.SetStatusText(_("Invalid values in '%s'") % fit.name)
 
         if self.legendFix and len(legend) > 0:
-            leg = self.subplot.legend(tuple(legend), "upper right" , shadow = False)
+            leg = self.subplot.legend(tuple(legend), _("upper right") , shadow = False)
             for t in leg.get_texts():
                 t.set_fontsize('small')
 
@@ -213,7 +213,7 @@ class GraphFrame(wx.Frame):
                 l.set_linewidth(1)
 
         elif not self.legendFix and len(legend) >0:
-            leg = self.subplot.legend(tuple(legend), "upper right" , shadow = False, frameon = False)
+            leg = self.subplot.legend(tuple(legend), _("upper right") , shadow = False, frameon = False)
             for t in leg.get_texts():
                 t.set_fontsize('small')
 
@@ -253,7 +253,7 @@ class FitList(wx.Panel):
 
         self.fitList = FitDisplay(self)
         self.mainSizer.Add(self.fitList, 1, wx.EXPAND)
-        fitToolTip = wx.ToolTip("Drag a fit into this list to graph it")
+        fitToolTip = wx.ToolTip(_("Drag a fit into this list to graph it"))
         self.fitList.SetToolTip(fitToolTip)
 
 class FitDisplay(gui.display.Display):

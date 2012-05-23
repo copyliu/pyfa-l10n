@@ -50,6 +50,9 @@ from gui.utils.clipboard import toClipboard, fromClipboard
 from gui.fleetBrowser import FleetBrowser
 from gui.builtinViews import *
 
+
+_ = wx.GetTranslation
+
 #dummy panel(no paint no erasebk)
 class PFPanel(wx.Panel):
     def __init__(self,parent):
@@ -69,7 +72,7 @@ class MainFrame(wx.Frame):
         return cls.__instance if cls.__instance is not None else MainFrame()
 
     def __init__(self):
-        wx.Frame.__init__(self, None, wx.ID_ANY, title="pyfa - Python Fitting Assistant")
+        wx.Frame.__init__(self, None, wx.ID_ANY, title=_("pyfa - Python Fitting Assistant"))
 
         MainFrame.__instance = self
 

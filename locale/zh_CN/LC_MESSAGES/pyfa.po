@@ -1,0 +1,25 @@
+# Chinese translations for PACKAGE package.
+# Copyright (C) 2012 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-23 14:32+0800\n"
+"PO-Revision-Date: 2012-05-23 14:32+0800\n"
+"Last-Translator: <EMAIL@ADDRESS>\n"
+"Language-Team: Chinese (simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: gui/mainFrame.py:76
+msgid "pyfa - Python Fitting Assistant"
+msgstr "pyfa中文"
+
+#: pyfa.py:32
+msgid "English"
+msgstr "中文"

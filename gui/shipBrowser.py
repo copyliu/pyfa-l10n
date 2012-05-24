@@ -27,7 +27,7 @@ Stage1Selected, EVT_SB_STAGE1_SEL = wx.lib.newevent.NewEvent()
 Stage2Selected, EVT_SB_STAGE2_SEL = wx.lib.newevent.NewEvent()
 Stage3Selected, EVT_SB_STAGE3_SEL = wx.lib.newevent.NewEvent()
 SearchSelected, EVT_SB_SEARCH_SEL = wx.lib.newevent.NewEvent()
-
+_ = wx.GetTranslation
 class PFWidgetsContainer(PFListPane):
     def __init__(self,parent):
         PFListPane.__init__(self,parent)
@@ -672,7 +672,7 @@ class ShipBrowser(wx.Panel):
             self.categoryList = list(sMarket.getShipRoot())
             self.categoryList.sort(key=lambda ship: ship.name)
         for ship in self.categoryList:
-            self.lpane.AddWidget(CategoryItem(self.lpane, ship.ID, (ship.name, 0)))
+            self.lpane.AddWidget(CategoryItem(self.lpane, ship.ID, (ship.name, 0),trnName=ship.trnname))
 
         self.lpane.RefreshList()
         self.lpane.Thaw()
@@ -721,10 +721,10 @@ class ShipBrowser(wx.Panel):
             if self.filterShipsWithNoFits:
                 if fits>0:
                     if filter:
-                        self.lpane.AddWidget(ShipItem(self.lpane, ship.ID, (ship.name, fits), ship.race))
+                        self.lpane.AddWidget(ShipItem(self.lpane, ship.ID, (ship.name, fits), ship.race,trnName=ship.trnname))
             else:
                 if filter:
-                    self.lpane.AddWidget(ShipItem(self.lpane, ship.ID, (ship.name, fits), ship.race))
+                    self.lpane.AddWidget(ShipItem(self.lpane, ship.ID, (ship.name, fits), ship.race,trnName=ship.trnname))
 
         self.raceselect.RebuildRaces(racesList)
 
@@ -801,7 +801,7 @@ class ShipBrowser(wx.Panel):
             self.Layout()
 
         fitList.sort(key=self.nameKey)
-        shipName = sMarket.getItem(shipID).name
+        shipName = sMarket.getItem(shipID).trnname
 
         self._stage3ShipName = shipName
         self._stage3Data = shipID
@@ -841,7 +841,7 @@ class ShipBrowser(wx.Panel):
             fitList = sFit.searchFits(query)
 
             for ship in ships:
-                self.lpane.AddWidget(ShipItem(self.lpane, ship.ID, (ship.name, len(sFit.getFitsWithShip(ship.ID))), ship.race))
+                self.lpane.AddWidget(ShipItem(self.lpane, ship.ID, (ship.name, len(sFit.getFitsWithShip(ship.ID))), ship.race, trnName=ship.trnname))
 
             for ID, name, shipID, shipName,timestamp in fitList:
                 self.lpane.AddWidget(FitItem(self.lpane, ID, (shipName, name,timestamp), shipID))
@@ -876,9 +876,11 @@ class PFGenBitmapButton(GenBitmapButton):
         return self.bgcolor
 
 class CategoryItem(SFItem.SFBrowserItem):
-    def __init__(self,parent, categoryID, fittingInfo, size = (0,16)):
+    def __init__(self,parent, categoryID, fittingInfo, size = (0,16),trnName=None):
         SFItem.SFBrowserItem.__init__(self,parent,size = size)
-
+        if not trnName:
+            trnName=fittingInfo[0]
+        self.trnName=trnName
         if categoryID:
             self.shipBmp = bitmapLoader.getBitmap("ship_small","icons")
         else:
@@ -966,7 +968,7 @@ class CategoryItem(SFItem.SFBrowserItem):
 
         mdc.SetFont(self.fontBig)
 
-        categoryName, fittings = self.fittingInfo
+        categoryName, fittings = self.trnName,self.fittingInfo[1]
 
         mdc.DrawText(categoryName, self.catx, self.caty)
 
@@ -995,9 +997,11 @@ class CategoryItem(SFItem.SFBrowserItem):
 class ShipItem(SFItem.SFBrowserItem):
     def __init__(self, parent, shipID=None, shipFittingInfo=("Test", 2), itemData=None,
                  id=wx.ID_ANY, pos=wx.DefaultPosition,
-                 size=(0, 40), style=0):
+                 size=(0, 40), style=0, trnName=None):
         SFItem.SFBrowserItem.__init__(self, parent, size = size)
-
+        if not trnName:
+            trnName=shipFittingInfo[0]
+        self.trnName=trnName
         self.mainFrame = gui.mainFrame.MainFrame.getInstance()
 
         self._itemData = itemData
@@ -1221,7 +1225,7 @@ class ShipItem(SFItem.SFBrowserItem):
         mdc.DrawBitmap(self.raceDropShadowBmp, self.raceBmpx + 1, self.raceBmpy + 1)
         mdc.DrawBitmap(self.raceBmp,self.raceBmpx, self.raceBmpy)
 
-        shipName, fittings = self.shipFittingInfo
+        shipName, fittings = self.trnName,self.shipFittingInfo[1]
 
         if fittings <1:
             fformat = "No fits"

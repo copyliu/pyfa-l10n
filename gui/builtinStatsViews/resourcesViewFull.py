@@ -1,3 +1,4 @@
+#  -*- coding: UTF-8 -*-
 #===============================================================================
 # Copyright (C) 2010 Diego Duclos
 #
@@ -72,7 +73,7 @@ class ResourcesViewFull(StatsView):
 
             sizer.Add(box, 0, wx.ALIGN_CENTER)
 
-            suffix = {'turret':_('Hardpoints'), 'launcher':_('Hardpoints'), 'drones':_('Active'), 'calibration':_('Points')}
+            suffix = {'turret':'Hardpoints', 'launcher':'Hardpoints', 'drones':'Active', 'calibration':'Points'}
             lbl = wx.StaticText(parent, wx.ID_ANY, "0")
             setattr(self, "label%sUsed%s%s" % (panel.capitalize(), type.capitalize(), suffix[type].capitalize()), lbl)
             box.Add(lbl, 0, wx.ALIGN_CENTER | wx.LEFT, 5)

@@ -2,51 +2,48 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pyfa-l10n\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-23 21:50+0800\n"
-"PO-Revision-Date: 2012-05-23 22:11+0800\n"
+"POT-Creation-Date: 2012-05-24 16:56+0800\n"
+"PO-Revision-Date: 2012-05-24 16:57+0800\n"
 "Last-Translator: CopyLiu <copyliu@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: crowdin.net\n"
 
-#: eos/saveddata/character.py:75
-#: eos/saveddata/character.py:77
-#: gui/characterEditor.py:130
-#: gui/characterEditor.py:180
-#: gui/characterEditor.py:227
-#: gui/characterEditor.py:265
-#: gui/characterEditor.py:373
-#: gui/characterEditor.py:468
-msgid "All 5"
-msgstr "全部5级"
+#: eos/db/gamedata/attribute.py:29
+#: eos/db/gamedata/effect.py:28
+#: eos/db/gamedata/metaGroup.py:33
+#: eos/db/gamedata/metaGroup.py:34
+msgid "invtypes_en.typeID"
+msgstr "invtypes_zh.typeID"
 
-#: eos/saveddata/character.py:88
-#: eos/saveddata/character.py:90
-#: gui/characterEditor.py:130
-#: gui/characterEditor.py:180
-#: gui/characterEditor.py:227
-#: gui/characterEditor.py:265
-#: gui/characterEditor.py:373
-#: gui/characterEditor.py:468
-#: gui/gangView.py:278
-#: gui/gangView.py:281
-#: gui/gangView.py:285
-#: gui/gangView.py:288
-#: gui/gangView.py:292
-#: gui/gangView.py:295
-#: gui/gangView.py:302
-#: gui/gangView.py:304
-#: gui/gangView.py:306
-msgid "All 0"
-msgstr "全部0级"
+#: eos/db/gamedata/group.py:27
+msgid "invgroups_en"
+msgstr "invgroups_zh"
+
+#: eos/db/gamedata/item.py:29
+msgid "invtypes_en"
+msgstr "invtypes_zh"
+
+#: eos/db/gamedata/item.py:38
+#: eos/db/gamedata/marketGroup.py:32
+msgid "invmarketgroups_en.marketGroupID"
+msgstr "invmarketgroups_zh.marketGroupID"
+
+#: eos/db/gamedata/item.py:40
+msgid "invgroups_en.groupID"
+msgstr "invgroups_zh.groupID"
+
+#: eos/db/gamedata/marketGroup.py:27
+msgid "invmarketgroups_en"
+msgstr "invmarketgroups_zh"
 
 #: gui/additionsPane.py:38
 msgid "Additions"
-msgstr "Additions"
+msgstr "附加"
 
 #: gui/additionsPane.py:59
 #: gui/additionsPane.py:71
@@ -79,6 +76,392 @@ msgstr "舰队"
 msgid "Missing icon file: {0}"
 msgstr "缺少图标文件 {0}"
 
+#: gui/builtinContextMenus/ammoPattern.py:24
+msgid "Set {0} as Damage Pattern"
+msgstr "设{0}为伤害类型"
+
+#: gui/builtinContextMenus/ammoPattern.py:24
+#: gui/builtinContextMenus/itemStats.py:16
+#: gui/builtinContextMenus/marketJump.py:25
+msgid "Item"
+msgstr "物品"
+
+#: gui/builtinContextMenus/damagePattern.py:18
+#: gui/patternEditor.py:47
+#: gui/patternEditor.py:254
+msgid "Selected Ammo"
+msgstr "所选的弹药"
+
+#: gui/builtinContextMenus/damagePattern.py:19
+#: gui/patternEditor.py:254
+msgid "Uniform"
+msgstr "统一"
+
+#: gui/builtinContextMenus/droneSplit.py:16
+msgid "Split {0} Stack"
+msgstr "分割{0}"
+
+#: gui/builtinContextMenus/droneSplit.py:30
+msgid "Select Amount"
+msgstr "选择数量"
+
+#: gui/builtinContextMenus/factorReload.py:16
+msgid "Factor in Reload Time"
+msgstr "重填时间因子"
+
+#: gui/builtinContextMenus/itemStats.py:16
+msgid "{0} Stats"
+msgstr "统计:{0}"
+
+#: gui/builtinContextMenus/marketJump.py:25
+msgid "{0} Market Group"
+msgstr "市场分组:{0}"
+
+#: gui/builtinContextMenus/moduleAmmoPicker.py:75
+msgid "{0}Damage"
+msgstr "伤害:{0}"
+
+#: gui/builtinContextMenus/moduleAmmoPicker.py:102
+msgid "Empty"
+msgstr "空"
+
+#: gui/builtinContextMenus/moduleAmmoPicker.py:127
+msgid "Long Range"
+msgstr "远程"
+
+#: gui/builtinContextMenus/moduleAmmoPicker.py:138
+#: gui/builtinContextMenus/moduleAmmoPicker.py:157
+#: gui/builtinContextMenus/moduleAmmoPicker.py:172
+#: gui/builtinContextMenus/moduleAmmoPicker.py:194
+msgid "More Damage"
+msgstr "更多伤害"
+
+#: gui/builtinContextMenus/moduleAmmoPicker.py:150
+#: gui/builtinContextMenus/moduleAmmoPicker.py:182
+msgid "Less Damage"
+msgstr "更少伤害"
+
+#: gui/builtinContextMenus/moduleAmmoPicker.py:161
+msgid "Short Range"
+msgstr "近程"
+
+#: gui/builtinContextMenus/project.py:19
+msgid "Project {0} onto Fit"
+msgstr "添加{0}到装配"
+
+#: gui/builtinContextMenus/whProjector.py:15
+msgid "Add System Effects"
+msgstr "添加星系(虫洞)影响"
+
+#: gui/builtinGraphs/fitDps.py:35
+msgid "Target Angle (degrees)"
+msgstr "目标角度 （度）"
+
+#: gui/builtinGraphs/fitDps.py:36
+msgid "Distance to Target (km)"
+msgstr "距离目标(km)"
+
+#: gui/builtinGraphs/fitDps.py:37
+msgid "Target Signature Radius (m)"
+msgstr "目标信号半径(m)"
+
+#: gui/builtinGraphs/fitDps.py:38
+msgid "Target Velocity (m/s)"
+msgstr "目标速度(m/s)"
+
+#: gui/builtinPreferenceViews/dummyView.py:25
+msgid "Dummy"
+msgstr "Dummy"
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:14
+msgid "Pyfa Global Options"
+msgstr "Pyfa 全局选项"
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:39
+msgid "Use global character"
+msgstr "使用全局角色"
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:42
+msgid "Use global damage pattern"
+msgstr "使用全局伤害类型"
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:45
+msgid "Factor in reload time"
+msgstr "重填时间因子"
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:50
+msgid "Default character:"
+msgstr "默认角色: "
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:65
+msgid "Proxy settings"
+msgstr "代理设置"
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:74
+msgid "Mode:"
+msgstr "模式："
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:78
+msgid "No proxy"
+msgstr "无代理"
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:78
+msgid "Auto-detected proxy settings"
+msgstr "自动检测代理服务器设置"
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:78
+msgid "Manual proxy settings"
+msgstr "手动代理设置"
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:94
+msgid "Addr:"
+msgstr "地址："
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:102
+msgid "Port:"
+msgstr "端口："
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:113
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:134
+msgid "Auto-detected: "
+msgstr "自动检测："
+
+#: gui/builtinPreferenceViews/pyfaGlobalPreferences.py:120
+msgid "Apply"
+msgstr "应用"
+
+#: gui/builtinStatsViews/capacitorViewFull.py:32
+msgid "Capacitor"
+msgstr "电容"
+
+#: gui/builtinStatsViews/capacitorViewFull.py:67
+msgid " GJ"
+msgstr "GJ"
+
+#: gui/builtinStatsViews/capacitorViewFull.py:72
+#: gui/builtinStatsViews/capacitorViewFull.py:142
+msgid "Lasts "
+msgstr "持续时间"
+
+#: gui/builtinStatsViews/capacitorViewFull.py:142
+msgid "Stable: "
+msgstr "稳定："
+
+#: gui/builtinStatsViews/firepowerViewFull.py:33
+msgid "Firepower"
+msgstr "火力"
+
+#: gui/builtinStatsViews/priceViewFull.py:50
+#, python-format
+msgid "Prices update retry in: %d seconds"
+msgstr "在 %d 秒重试更新价格"
+
+#: gui/builtinStatsViews/priceViewFull.py:56
+msgid "Price"
+msgstr "价格"
+
+#: gui/builtinStatsViews/priceViewFull.py:110
+msgid "Updating prices..."
+msgstr "正在更新价格..."
+
+#: gui/builtinStatsViews/rechargeViewFull.py:38
+msgid "Recharge rates"
+msgstr "维修速率"
+
+#: gui/builtinStatsViews/rechargeViewFull.py:63
+msgid "Passive shield recharge"
+msgstr "被动回盾"
+
+#: gui/builtinStatsViews/rechargeViewFull.py:63
+msgid "Active shield boost"
+msgstr "主动修盾"
+
+#: gui/builtinStatsViews/rechargeViewFull.py:63
+msgid "Armor repair amount"
+msgstr "装甲维修量"
+
+#: gui/builtinStatsViews/rechargeViewFull.py:63
+msgid "Hull repair amount"
+msgstr "结构修理量"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:44
+msgid "Resistances"
+msgstr "抗性"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:59
+#: gui/builtinStatsViews/resistancesViewFull.py:209
+msgid "( Effective HP: "
+msgstr "(有效 HP:"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:85
+msgid "Electromagnetic resistance"
+msgstr "电磁抗性"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:85
+msgid "Thermal resistance"
+msgstr "热能抗性"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:85
+msgid "Kinetic resistance"
+msgstr "动能抗性"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:85
+msgid "Explosive resistance"
+msgstr "爆炸抗性"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:92
+msgid "EHP"
+msgstr "有效HP"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:93
+#: gui/builtinStatsViews/resistancesViewFull.py:156
+msgid "Click to toggle between effective HP and raw HP"
+msgstr "点击在有效HP和原始HP间切换"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:104
+msgid "Shield resistance"
+msgstr "护盾抗性"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:104
+msgid "Armor resistance"
+msgstr "装甲抗性"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:104
+msgid "Hull resistance"
+msgstr "结构抗性"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:104
+msgid "Incoming damage pattern"
+msgstr "伤害类型"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:210
+#, python-format
+msgid "Effective: %d HP"
+msgstr "有效: %d HP"
+
+#: gui/builtinStatsViews/resistancesViewFull.py:212
+msgid "( Raw HP: "
+msgstr "（原始 HP："
+
+#: gui/builtinStatsViews/resistancesViewFull.py:213
+#, python-format
+msgid "Raw: %d HP"
+msgstr "原始： %d HP"
+
+#: gui/builtinStatsViews/resourcesViewFull.py:37
+msgid "Resources"
+msgstr "基本属性"
+
+#: gui/builtinStatsViews/resourcesViewFull.py:64
+msgid "Turret hardpoints"
+msgstr "炮台位"
+
+#: gui/builtinStatsViews/resourcesViewFull.py:64
+msgid "Launcher hardpoints"
+msgstr "发射架"
+
+#: gui/builtinStatsViews/resourcesViewFull.py:64
+msgid "Drones active"
+msgstr "已激活无人机"
+
+#: gui/builtinStatsViews/resourcesViewFull.py:64
+msgid "Calibration"
+msgstr "校准值"
+
+#: gui/builtinStatsViews/resourcesViewFull.py:89
+msgid "PowerGrid"
+msgstr "能量栅格"
+
+#: gui/builtinStatsViews/resourcesViewFull.py:89
+msgid "Drone bay"
+msgstr "无人机挂仓"
+
+#: gui/builtinStatsViews/resourcesViewFull.py:89
+msgid "Drone bandwidth"
+msgstr "无人机带宽"
+
+#: gui/builtinStatsViews/resourcesViewFull.py:121
+msgid " tf"
+msgstr "tf"
+
+#: gui/builtinStatsViews/resourcesViewFull.py:121
+msgid " MW"
+msgstr "MW"
+
+#: gui/builtinStatsViews/resourcesViewFull.py:121
+msgid " mbit/s"
+msgstr "Mbit/s"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:32
+msgid "Targeting && Misc"
+msgstr "锁定系统 && 其他"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:54
+msgid "Targets"
+msgstr "锁定目标数"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:55
+msgid "Range"
+msgstr "锁定距离"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:56
+msgid "Scan res."
+msgstr "扫描分辨率"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:57
+msgid "Sensor str."
+msgstr "感应强度"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:58
+msgid "Drone range"
+msgstr "无人机控制距离"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:78
+msgid "Speed"
+msgstr "速度"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:79
+msgid "Align time"
+msgstr "转向时间"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:80
+msgid "Signature"
+msgstr "信号半径"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:81
+msgid "Warp Speed"
+msgstr "跃迁速度"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:82
+msgid "Cargo"
+msgstr "货舱容量"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:125
+msgid "Lock Times"
+msgstr "锁定时间"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:133
+#, python-format
+msgid "Type: %s - %.1f"
+msgstr "类型: %s - %.1f"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:135
+#, python-format
+msgid "Probe Size: %.3f"
+msgstr "探针大小： %.3f"
+
+#: gui/builtinStatsViews/targetingMiscViewFull.py:137
+#: gui/builtinStatsViews/targetingMiscViewFull.py:145
+#, python-format
+msgid "Max Warp Distance: %.1f AU"
+msgstr "最大跃迁距离: %.1f AU"
+
+#: gui/builtinViews/fleetView.py:15
+#: gui/chromeTabs.py:186
+#: gui/multiSwitch.py:38
+msgid "Empty Tab"
+msgstr "空标签"
+
 #: gui/characterEditor.py:38
 msgid "pyfa: Character Editor"
 msgstr "pyfa： 人物编辑器"
@@ -96,6 +479,33 @@ msgstr "技能"
 #: gui/characterEditor.py:111
 msgid "API"
 msgstr "API"
+
+#: gui/characterEditor.py:130
+#: gui/characterEditor.py:180
+#: gui/characterEditor.py:227
+#: gui/characterEditor.py:265
+#: gui/characterEditor.py:373
+#: gui/characterEditor.py:468
+#: gui/gangView.py:278
+#: gui/gangView.py:281
+#: gui/gangView.py:285
+#: gui/gangView.py:288
+#: gui/gangView.py:292
+#: gui/gangView.py:295
+#: gui/gangView.py:302
+#: gui/gangView.py:304
+#: gui/gangView.py:306
+msgid "All 0"
+msgstr "全部0级"
+
+#: gui/characterEditor.py:130
+#: gui/characterEditor.py:180
+#: gui/characterEditor.py:227
+#: gui/characterEditor.py:265
+#: gui/characterEditor.py:373
+#: gui/characterEditor.py:468
+msgid "All 5"
+msgstr "全部5级"
 
 #: gui/characterEditor.py:199
 msgid "Create"
@@ -174,7 +584,7 @@ msgstr "人物: "
 
 #: gui/characterSelection.py:120
 msgid "No active fit."
-msgstr "No active fit."
+msgstr "未激活装配."
 
 #: gui/characterSelection.py:125
 msgid "All prerequisites have been met"
@@ -190,7 +600,7 @@ msgstr "EFT"
 
 #: gui/copySelectDialog.py:33
 msgid "EFT (Implants)"
-msgstr "EFT (Implants)"
+msgstr "EFT(移植)"
 
 #: gui/copySelectDialog.py:33
 msgid "XML"
@@ -263,11 +673,11 @@ msgstr "双击删除助推器"
 #: gui/gangView.py:303
 #: gui/gangView.py:305
 msgid "None"
-msgstr "None"
+msgstr "无"
 
 #: gui/graphFrame.py:50
 msgid "pyfa: Found matplotlib version "
-msgstr "pyfa: Found matplotlib version "
+msgstr "pyfa:已存在的matplotlib版本 "
 
 #: gui/graphFrame.py:50
 msgid " - activating OVER9000 workarounds"
@@ -275,29 +685,29 @@ msgstr " - activating OVER9000 workarounds"
 
 #: gui/graphFrame.py:51
 msgid "pyfa: Recommended minimum matplotlib version is 1.0.0"
-msgstr "pyfa: Recommended minimum matplotlib version is 1.0.0"
+msgstr "pyfa： 建议最低 matplotlib 版本是 1.0.0"
 
 #: gui/graphFrame.py:54
 msgid "Problems importing matplotlib; continuing without graphs"
-msgstr "Problems importing matplotlib; continuing without graphs"
+msgstr "导入 matplotlib 出现问题；“继续”不显示图形"
 
 #: gui/graphFrame.py:205
 #, python-format
 msgid "Invalid values in '%s'"
-msgstr "Invalid values in '%s'"
+msgstr "'%s'中有无效的值"
 
 #: gui/graphFrame.py:208
 #: gui/graphFrame.py:216
 msgid "upper right"
-msgstr "upper right"
+msgstr "右上"
 
 #: gui/graphFrame.py:256
 msgid "Drag a fit into this list to graph it"
-msgstr "Drag a fit into this list to graph it"
+msgstr "拖动装配到列表中显示图形"
 
 #: gui/itemStats.py:137
 msgid "Description"
-msgstr "Description"
+msgstr "物品描述"
 
 #: gui/itemStats.py:140
 msgid "Attributes"
@@ -349,7 +759,7 @@ msgstr ""
 "\n"
 "\n"
 "\n"
-"Developers: "
+"开发者: "
 
 #: gui/mainFrame.py:240
 msgid ""
@@ -360,7 +770,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Additional credits:\n"
+"其他:\n"
 "  "
 
 #: gui/mainFrame.py:242
@@ -371,11 +781,11 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"License: "
+"许可协议: "
 
 #: gui/mainFrame.py:244
 msgid " - see included "
-msgstr " - see included "
+msgstr "-请参阅"
 
 #: gui/mainFrame.py:250
 msgid "http://www.evefit.org/Pyfa"
@@ -383,11 +793,11 @@ msgstr "http://www.evefit.org/Pyfa"
 
 #: gui/mainFrame.py:250
 msgid "pyfa home page"
-msgstr "pyfa home page"
+msgstr "pyfa 主页"
 
 #: gui/mainFrame.py:268
 msgid "Open One Or More Fitting Files"
-msgstr "Open One Or More Fitting Files"
+msgstr "打开一个或多个装配文件"
 
 #: gui/mainFrame.py:269
 msgid "EFT text fitting files (*.cfg)|*.cfg|EvE XML fitting files (*.xml)|*.xml|All Files (*)|*"
@@ -404,7 +814,7 @@ msgstr "EvE XML 配置文件 (*.xml)|*.xml"
 #: gui/mainFrame.py:307
 #, python-format
 msgid "oops, invalid fit format %d"
-msgstr "oops, invalid fit format %d"
+msgstr "哎呦，装配格式错啦！%d"
 
 #: gui/mainFrame.py:468
 msgid "Save Backup As..."
@@ -414,8 +824,13 @@ msgstr "保存备份作为..."
 msgid "EvE XML fitting file (*.xml)|*.xml"
 msgstr "EvE XML 配置文件 (*.xml)|*.xml"
 
+#: gui/mainMenuBar.py:41
+msgid "&File"
+msgstr "文件(&F)"
+
 #: gui/mainMenuBar.py:43
-msgid "&New Tab\\tCTRL+T"
+#, fuzzy
+msgid "&New Tab\tCTRL+T"
 msgstr "新标签(&N)\\tCTRL + T"
 
 #: gui/mainMenuBar.py:43
@@ -423,7 +838,8 @@ msgid "Open a new fitting tab"
 msgstr "打开一个新的配置标签"
 
 #: gui/mainMenuBar.py:44
-msgid "&Close Tab\\tCTRL+W"
+#, fuzzy
+msgid "&Close Tab\tCTRL+W"
 msgstr "关闭标签(&C)\\tCTRL + W"
 
 #: gui/mainMenuBar.py:44
@@ -439,7 +855,8 @@ msgid "Backup all fittings to a XML file"
 msgstr "备份所有装配到XML文件"
 
 #: gui/mainMenuBar.py:48
-msgid "&Import\\tCTRL+O"
+#, fuzzy
+msgid "&Import\tCTRL+O"
 msgstr "导入(&I)\\tCTRL + O"
 
 #: gui/mainMenuBar.py:48
@@ -447,7 +864,8 @@ msgid "Import a fit into pyfa."
 msgstr "导入装配到pyfa"
 
 #: gui/mainMenuBar.py:49
-msgid "&Export\\tCTRL+S"
+#, fuzzy
+msgid "&Export\tCTRL+S"
 msgstr "导出(&E)\\tCTRL + S"
 
 #: gui/mainMenuBar.py:49
@@ -463,7 +881,8 @@ msgid "&To Clipboard"
 msgstr "到剪贴板(&T)"
 
 #: gui/mainMenuBar.py:63
-msgid "\\tCTRL+C"
+#, fuzzy
+msgid "\tCTRL+C"
 msgstr "\\tCTRL+C"
 
 #: gui/mainMenuBar.py:64
@@ -471,7 +890,8 @@ msgid "&From Clipboard"
 msgstr "从剪贴板(&F)"
 
 #: gui/mainMenuBar.py:64
-msgid "\\tCTRL+V"
+#, fuzzy
+msgid "\tCTRL+V"
 msgstr "\\tCTRL+V"
 
 #: gui/mainMenuBar.py:65
@@ -487,15 +907,18 @@ msgid "&Window"
 msgstr "窗口(&W)"
 
 #: gui/mainMenuBar.py:72
-msgid "&Character Editor\\tCTRL+E"
+#, fuzzy
+msgid "&Character Editor\tCTRL+E"
 msgstr "人物编辑器(&C)\\tCTRL+E"
 
 #: gui/mainMenuBar.py:76
-msgid "Damage Pattern Editor\\tCTRL+D"
+#, fuzzy
+msgid "Damage Pattern Editor\tCTRL+D"
 msgstr "伤害编辑器?\\tCTRL + D"
 
 #: gui/mainMenuBar.py:87
-msgid "Preferences\\tCTRL+P"
+#, fuzzy
+msgid "Preferences\tCTRL+P"
 msgstr "首选项\\tCTRL + P"
 
 #: gui/mainMenuBar.py:94
@@ -510,11 +933,6 @@ msgstr "打开窗口小部件检查工具"
 msgid "Damage Pattern Editor"
 msgstr "伤害编辑器"
 
-#: gui/patternEditor.py:47
-#: gui/patternEditor.py:254
-msgid "Selected Ammo"
-msgstr "所选的弹药"
-
 #: gui/patternEditor.py:81
 #, python-format
 msgid "%s pattern"
@@ -524,10 +942,6 @@ msgstr "%s 模式"
 #, python-format
 msgid "%s patterns %s clipboard"
 msgstr "%s 模式 %s 剪贴板"
-
-#: gui/patternEditor.py:254
-msgid "Uniform"
-msgstr "统一"
 
 #: gui/patternEditor.py:304
 msgid "Name already used, please pick another"
@@ -561,3 +975,16 @@ msgstr "pyfa - 首选项"
 msgid "No matching results."
 msgstr "没有匹配的结果。"
 
+#: service/character.py:95
+#, fuzzy
+msgid "New Character"
+msgstr "人物"
+
+#~ msgid "Hardpoints"
+#~ msgstr "安装位"
+
+#~ msgid "Active"
+#~ msgstr "已激活"
+
+#~ msgid "Points"
+#~ msgstr "点"

@@ -22,7 +22,8 @@ import eos.types
 import copy
 import service
 import itertools
-
+import wx
+_ = wx.GetTranslation
 class Character():
     instance = None
     @classmethod
@@ -91,7 +92,7 @@ class Character():
         eos.db.commit()
 
     def new(self):
-        char = eos.types.Character("New Character")
+        char = eos.types.Character(_("New Character"))
         eos.db.save(char)
         return char.ID
 

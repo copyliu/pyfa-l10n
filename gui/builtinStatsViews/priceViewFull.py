@@ -100,7 +100,7 @@ class PriceViewFull(StatsView):
                     typeIDs.append(mod.itemID)
 
             for drone in fit.drones:
-                for _ in xrange(drone.amount):
+                for __ in xrange(drone.amount):
                     typeIDs.append(drone.itemID)
             if self._timer:
                 if self._timer.IsRunning():

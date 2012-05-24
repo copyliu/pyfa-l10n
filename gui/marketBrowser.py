@@ -127,7 +127,7 @@ class MarketTree(wx.TreeCtrl):
         sMkt = self.sMarket
         for mktGrp in sMkt.getMarketRoot():
             iconId = self.addImage(sMkt.getIconByMarketGroup(mktGrp))
-            childId = self.AppendItem(self.root, mktGrp.name, iconId, data=wx.TreeItemData(mktGrp.ID))
+            childId = self.AppendItem(self.root, mktGrp.trnname, iconId, data=wx.TreeItemData(mktGrp.ID))
             # All market groups which were never expanded are dummies, here we assume
             # that all root market groups are expandable
             self.AppendItem(childId, "dummy")
@@ -161,7 +161,7 @@ class MarketTree(wx.TreeCtrl):
                 if sMkt.marketGroupValidityCheck(childMktGrp) is False:
                     continue
                 iconId = self.addImage(sMkt.getIconByMarketGroup(childMktGrp))
-                childId = self.AppendItem(root, childMktGrp.name, iconId, data=wx.TreeItemData(childMktGrp.ID))
+                childId = self.AppendItem(root, childMktGrp.trnname, iconId, data=wx.TreeItemData(childMktGrp.ID))
                 if sMkt.marketGroupHasTypesCheck(childMktGrp) is False:
                     self.AppendItem(childId, "dummy")
 
@@ -374,8 +374,8 @@ class ItemView(d.Display):
             mktgrpid = sMkt.getMarketGroupByItem(item).ID
         except AttributeError:
             mktgrpid = None
-            print "unable to find market group for", item.name
-        parentname = sMkt.getParentItemByItem(item).name
+            print "unable to find market group for", item.trnname
+        parentname = sMkt.getParentItemByItem(item).trnname
         # Get position of market group
         metagrpid = sMkt.getMetaGroupIdByItem(item)
         metatab = self.metaMap.get(metagrpid)
@@ -392,7 +392,7 @@ class ItemView(d.Display):
 
         sMkt = self.sMarket
         sourceContext = "marketItemGroup" if self.marketBrowser.searchMode is False else "marketItemMisc"
-        itemContext = sMkt.getCategoryByItem(item).name
+        itemContext = sMkt.getCategoryByItem(item).trnname
 
         menu = ContextMenu.getMenu((item,), (sourceContext, itemContext))
         self.PopupMenu(menu)

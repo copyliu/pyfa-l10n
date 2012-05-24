@@ -71,6 +71,12 @@ if __name__ == "__main__":
 
     # Import everything
     import wx
+    langid = wx.LANGUAGE_DEFAULT    # use OS default; or use LANGUAGE_JAPANESE, etc.
+    domain = "pyfa"             # the translation file is messages.mo
+    # Set locale for wxWidgets
+    locale = wx.Locale(langid)
+    locale.AddCatalogLookupPathPrefix("locale")
+    locale.AddCatalog(domain)
     import os
     import os.path
 
@@ -78,12 +84,7 @@ if __name__ == "__main__":
     import service.prefetch
     from gui.mainFrame import MainFrame
 
-    langid = wx.LANGUAGE_DEFAULT    # use OS default; or use LANGUAGE_JAPANESE, etc.
-    domain = "pyfa"             # the translation file is messages.mo
-    # Set locale for wxWidgets
-    locale = wx.Locale(langid)
-    locale.AddCatalogLookupPathPrefix("locale")
-    locale.AddCatalog(domain)
+
     #Make sure the saveddata db exists
     if not os.path.exists(config.savePath):
         os.mkdir(config.savePath)

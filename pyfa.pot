@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-23 22:49+0800\n"
+"POT-Creation-Date: 2012-05-24 16:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,21 +17,29 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: eos/saveddata/character.py:75 eos/saveddata/character.py:77
-#: gui/characterEditor.py:130 gui/characterEditor.py:180
-#: gui/characterEditor.py:227 gui/characterEditor.py:265
-#: gui/characterEditor.py:373 gui/characterEditor.py:468
-msgid "All 5"
+#: eos/db/gamedata/attribute.py:29 eos/db/gamedata/effect.py:28
+#: eos/db/gamedata/metaGroup.py:33 eos/db/gamedata/metaGroup.py:34
+msgid "invtypes_en.typeID"
 msgstr ""
 
-#: eos/saveddata/character.py:88 eos/saveddata/character.py:90
-#: gui/characterEditor.py:130 gui/characterEditor.py:180
-#: gui/characterEditor.py:227 gui/characterEditor.py:265
-#: gui/characterEditor.py:373 gui/characterEditor.py:468 gui/gangView.py:278
-#: gui/gangView.py:281 gui/gangView.py:285 gui/gangView.py:288
-#: gui/gangView.py:292 gui/gangView.py:295 gui/gangView.py:302
-#: gui/gangView.py:304 gui/gangView.py:306
-msgid "All 0"
+#: eos/db/gamedata/group.py:27
+msgid "invgroups_en"
+msgstr ""
+
+#: eos/db/gamedata/item.py:29
+msgid "invtypes_en"
+msgstr ""
+
+#: eos/db/gamedata/item.py:38 eos/db/gamedata/marketGroup.py:32
+msgid "invmarketgroups_en.marketGroupID"
+msgstr ""
+
+#: eos/db/gamedata/item.py:40
+msgid "invgroups_en.groupID"
+msgstr ""
+
+#: eos/db/gamedata/marketGroup.py:27
+msgid "invmarketgroups_en"
 msgstr ""
 
 #: gui/additionsPane.py:38
@@ -68,7 +76,7 @@ msgstr ""
 
 #: gui/builtinContextMenus/ammoPattern.py:24
 #: gui/builtinContextMenus/itemStats.py:16
-#: gui/builtinContextMenus/marketJump.py:24
+#: gui/builtinContextMenus/marketJump.py:25
 msgid "Item"
 msgstr ""
 
@@ -97,7 +105,7 @@ msgstr ""
 msgid "{0} Stats"
 msgstr ""
 
-#: gui/builtinContextMenus/marketJump.py:24
+#: gui/builtinContextMenus/marketJump.py:25
 msgid "{0} Market Group"
 msgstr ""
 
@@ -137,19 +145,19 @@ msgstr ""
 msgid "Add System Effects"
 msgstr ""
 
-#: gui/builtinGraphs/fitDps.py:34
+#: gui/builtinGraphs/fitDps.py:35
 msgid "Target Angle (degrees)"
 msgstr ""
 
-#: gui/builtinGraphs/fitDps.py:35
+#: gui/builtinGraphs/fitDps.py:36
 msgid "Distance to Target (km)"
 msgstr ""
 
-#: gui/builtinGraphs/fitDps.py:36
+#: gui/builtinGraphs/fitDps.py:37
 msgid "Target Signature Radius (m)"
 msgstr ""
 
-#: gui/builtinGraphs/fitDps.py:37
+#: gui/builtinGraphs/fitDps.py:38
 msgid "Target Velocity (m/s)"
 msgstr ""
 
@@ -332,59 +340,47 @@ msgstr ""
 msgid "Raw: %d HP"
 msgstr ""
 
-#: gui/builtinStatsViews/resourcesViewFull.py:36
+#: gui/builtinStatsViews/resourcesViewFull.py:37
 msgid "Resources"
 msgstr ""
 
-#: gui/builtinStatsViews/resourcesViewFull.py:63
+#: gui/builtinStatsViews/resourcesViewFull.py:64
 msgid "Turret hardpoints"
 msgstr ""
 
-#: gui/builtinStatsViews/resourcesViewFull.py:63
+#: gui/builtinStatsViews/resourcesViewFull.py:64
 msgid "Launcher hardpoints"
 msgstr ""
 
-#: gui/builtinStatsViews/resourcesViewFull.py:63
+#: gui/builtinStatsViews/resourcesViewFull.py:64
 msgid "Drones active"
 msgstr ""
 
-#: gui/builtinStatsViews/resourcesViewFull.py:63
+#: gui/builtinStatsViews/resourcesViewFull.py:64
 msgid "Calibration"
 msgstr ""
 
-#: gui/builtinStatsViews/resourcesViewFull.py:75
-msgid "Hardpoints"
-msgstr ""
-
-#: gui/builtinStatsViews/resourcesViewFull.py:75
-msgid "Active"
-msgstr ""
-
-#: gui/builtinStatsViews/resourcesViewFull.py:75
-msgid "Points"
-msgstr ""
-
-#: gui/builtinStatsViews/resourcesViewFull.py:88
+#: gui/builtinStatsViews/resourcesViewFull.py:89
 msgid "PowerGrid"
 msgstr ""
 
-#: gui/builtinStatsViews/resourcesViewFull.py:88
+#: gui/builtinStatsViews/resourcesViewFull.py:89
 msgid "Drone bay"
 msgstr ""
 
-#: gui/builtinStatsViews/resourcesViewFull.py:88
+#: gui/builtinStatsViews/resourcesViewFull.py:89
 msgid "Drone bandwidth"
 msgstr ""
 
-#: gui/builtinStatsViews/resourcesViewFull.py:120
+#: gui/builtinStatsViews/resourcesViewFull.py:121
 msgid " tf"
 msgstr ""
 
-#: gui/builtinStatsViews/resourcesViewFull.py:120
+#: gui/builtinStatsViews/resourcesViewFull.py:121
 msgid " MW"
 msgstr ""
 
-#: gui/builtinStatsViews/resourcesViewFull.py:120
+#: gui/builtinStatsViews/resourcesViewFull.py:121
 msgid " mbit/s"
 msgstr ""
 
@@ -472,6 +468,21 @@ msgstr ""
 
 #: gui/characterEditor.py:111
 msgid "API"
+msgstr ""
+
+#: gui/characterEditor.py:130 gui/characterEditor.py:180
+#: gui/characterEditor.py:227 gui/characterEditor.py:265
+#: gui/characterEditor.py:373 gui/characterEditor.py:468 gui/gangView.py:278
+#: gui/gangView.py:281 gui/gangView.py:285 gui/gangView.py:288
+#: gui/gangView.py:292 gui/gangView.py:295 gui/gangView.py:302
+#: gui/gangView.py:304 gui/gangView.py:306
+msgid "All 0"
+msgstr ""
+
+#: gui/characterEditor.py:130 gui/characterEditor.py:180
+#: gui/characterEditor.py:227 gui/characterEditor.py:265
+#: gui/characterEditor.py:373 gui/characterEditor.py:468
+msgid "All 5"
 msgstr ""
 
 #: gui/characterEditor.py:199
@@ -913,4 +924,8 @@ msgstr ""
 
 #: gui/shipBrowser.py:849
 msgid "No matching results."
+msgstr ""
+
+#: service/character.py:95
+msgid "New Character"
 msgstr ""

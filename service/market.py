@@ -112,8 +112,8 @@ class SearchWorkerThread(threading.Thread):
             # Rely on category data provided by eos as we don't hardcode them much in service
             filter = eos.types.Category.name.in_(sMarket.SEARCH_CATEGORIES)
             results = eos.db.searchItems(request, where=filter,
-                                         join=(eos.types.Item.group, eos.types.Group.category),
-                                         eager=("icon", "group.category", "metaGroup", "metaGroup.parent"))
+                join=(eos.types.Item.group, eos.types.Group.category),
+                eager=("icon", "group.category", "metaGroup", "metaGroup.parent"))
 
             items = set()
             # Return only published items, consult with Market service this time
@@ -187,7 +187,6 @@ class Market():
             "Vangel": self.les_grp, # AT9 prize
             "Iteron Mark IV Quafe Ultra Edition": self.les_grp, # Gift to Fanfest 2012 attendees
             "Iteron Mark IV Quafe Ultramarine Edition": self.les_grp } # Gift to first Japanese subscribers
-        self.ITEMS_FORCEGROUP={u"梯队级": self.les_grp,}
         self.ITEMS_FORCEGROUP_R = self.__makeRevDict(self.ITEMS_FORCEGROUP)
         self.les_grp.items += list(self.getItem(itmn) for itmn in self.ITEMS_FORCEGROUP_R[self.les_grp])
         self.customGroups.add(self.les_grp)
@@ -233,7 +232,7 @@ class Market():
             if not parent in self.ITEMS_FORCEDMETAGROUP_R:
                 self.ITEMS_FORCEDMETAGROUP_R[parent] = set()
             self.ITEMS_FORCEDMETAGROUP_R[parent].add(item)
-        # Dictionary of items with forced market group (service assumes they have no
+            # Dictionary of items with forced market group (service assumes they have no
         # market group assigned in db, otherwise they'll appear in both original and forced groups)
         self.ITEMS_FORCEDMARKETGROUP = {
             "'Alpha' Codebreaker I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
@@ -287,9 +286,9 @@ class Market():
         # Misc definitions
         # 0 is for items w/o meta group
         self.META_MAP = OrderedDict([("normal",  frozenset((0, 1, 2, 14))),
-                                     ("faction", frozenset((4, 3))),
-                                     ("complex", frozenset((6,))),
-                                     ("officer", frozenset((5,)))])
+            ("faction", frozenset((4, 3))),
+            ("complex", frozenset((6,))),
+            ("officer", frozenset((5,)))])
         self.SEARCH_CATEGORIES = ("Drone", "Module", "Subsystem", "Charge", "Implant")
         self.ROOT_MARKET_GROUPS = (9,     # Modules
                                    1111,  # Rigs
@@ -335,13 +334,13 @@ class Market():
         elif isinstance(identity, (int, float, basestring)):
             if isinstance(identity, float):
                 identity = int(identity)
-            # Check custom groups
+                # Check custom groups
             for cgrp in self.customGroups:
                 # During first comparison we need exact int, not float for matching
                 if cgrp.ID == identity or cgrp.name == identity:
                     # Return first match
                     return cgrp
-            # Return eos group if everything else returned nothing
+                # Return eos group if everything else returned nothing
             return eos.db.getGroup(identity, *args, **kwargs)
         else:
             raise TypeError("Need Group object, integer, float or string as argument")
@@ -469,13 +468,13 @@ class Market():
                 parent = self.getParentItemByItem(item)
             else:
                 parent = item
-            # Combine both in the same set
+                # Combine both in the same set
             parents.add(parent)
             # Check for overrides and add them if any
             if parent.name in self.ITEMS_FORCEDMETAGROUP_R:
                 for itmn in self.ITEMS_FORCEDMETAGROUP_R[parent.name]:
                     variations.add(self.getItem(itmn))
-        # Add all parents to variations set
+            # Add all parents to variations set
         variations.update(parents)
         # Add all variations of parents to the set
         parentids = tuple(item.ID for item in parents)
@@ -519,7 +518,7 @@ class Market():
                 # If item has no parent, it's base item (or at least should be)
                 if parent is None:
                     parents.add(item)
-            # Fetch variations only for parent items
+                # Fetch variations only for parent items
             variations = self.getVariationsByItems(parents, alreadyparent=True)
             for variation in variations:
                 # Exclude items with their own explicitly defined market groups
@@ -527,7 +526,7 @@ class Market():
                     result.add(variation)
         else:
             result = baseitms
-        # Get rid of unpublished items
+            # Get rid of unpublished items
         result = set(filter(lambda item: self.getPublicityByItem(item), result))
         return result
 

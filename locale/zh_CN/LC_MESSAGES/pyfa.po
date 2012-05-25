@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pyfa-l10n\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 16:56+0800\n"
-"PO-Revision-Date: 2012-05-24 16:57+0800\n"
+"POT-Creation-Date: 2012-05-25 22:24+0800\n"
+"PO-Revision-Date: 2012-05-25 22:25+0800\n"
 "Last-Translator: CopyLiu <copyliu@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "MIME-Version: 1.0\n"
@@ -20,16 +20,24 @@ msgstr ""
 msgid "invtypes_en.typeID"
 msgstr "invtypes_zh.typeID"
 
+#: eos/db/gamedata/category.py:27
+msgid "invcategories_en"
+msgstr "invcategories_zh"
+
 #: eos/db/gamedata/group.py:27
 msgid "invgroups_en"
 msgstr "invgroups_zh"
+
+#: eos/db/gamedata/group.py:33
+msgid "invcategories_en.categoryID"
+msgstr "invcategories_zh.categoryID"
 
 #: eos/db/gamedata/item.py:29
 msgid "invtypes_en"
 msgstr "invtypes_zh"
 
 #: eos/db/gamedata/item.py:38
-#: eos/db/gamedata/marketGroup.py:32
+#: eos/db/gamedata/marketGroup.py:33
 msgid "invmarketgroups_en.marketGroupID"
 msgstr "invmarketgroups_zh.marketGroupID"
 

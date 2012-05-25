@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 16:56+0800\n"
+"POT-Creation-Date: 2012-05-25 22:24+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,15 +22,23 @@ msgstr ""
 msgid "invtypes_en.typeID"
 msgstr ""
 
+#: eos/db/gamedata/category.py:27
+msgid "invcategories_en"
+msgstr ""
+
 #: eos/db/gamedata/group.py:27
 msgid "invgroups_en"
+msgstr ""
+
+#: eos/db/gamedata/group.py:33
+msgid "invcategories_en.categoryID"
 msgstr ""
 
 #: eos/db/gamedata/item.py:29
 msgid "invtypes_en"
 msgstr ""
 
-#: eos/db/gamedata/item.py:38 eos/db/gamedata/marketGroup.py:32
+#: eos/db/gamedata/item.py:38 eos/db/gamedata/marketGroup.py:33
 msgid "invmarketgroups_en.marketGroupID"
 msgstr ""
 

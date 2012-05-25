@@ -14,3 +14,5 @@
 #Personal
 
 .idea/
+dist/
+build/

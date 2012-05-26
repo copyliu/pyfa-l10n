@@ -67,7 +67,7 @@ class FleetBrowser(wx.Panel):
         self.sFleet.renameFleet(newFleet, fleetName)
 
         self.fleetIDMustEditName = newFleet.ID
-        self.AddItem(newFleet.ID, newFleet.name, newFleet.count())
+        self.AddItem(newFleet.ID, newFleet.trnname, newFleet.count())
 
     def SelectFleetItem(self, event):
         fleetID = event.fleetID
@@ -78,11 +78,11 @@ class FleetBrowser(wx.Panel):
         fleetID = event.fleetID
         fleet = self.sFleet.copyFleetByID(fleetID)
 
-        fleetName = fleet.name + _(" Copy")
+        fleetName = fleet.trnname + _(" Copy")
         self.sFleet.renameFleet(fleet,fleetName)
 
         self.fleetIDMustEditName = fleet.ID
-        self.AddItem(fleet.ID, fleet.name, fleet.count())
+        self.AddItem(fleet.ID, fleet.trnname, fleet.count())
 
         self.fleetItemContainer.SelectWidgetByFleetID(fleet.ID)
         wx.PostEvent(self.mainFrame, FleetSelected(fleetID=fleet.ID))

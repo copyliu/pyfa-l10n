@@ -141,7 +141,7 @@ class CharacterSelection(wx.Panel):
         tip = ""
         if tabulationLevel == 0:
             for item, subReqs in reqs.iteritems():
-                tip += "%s:\n" % item.name
+                tip += "%s:\n" % item.trnname
                 tip += self._buildSkillsTooltip(subReqs, 1)
         else:
             for name, info in reqs.iteritems():

@@ -144,10 +144,10 @@ class DroneView(d.Display):
     def droneKey(self, drone):
         sMarket = service.Market.getInstance()
 
-        groupName = sMarket.getMarketGroupByItem(drone.item).name
+        groupName = sMarket.getMarketGroupByItem(drone.item).trnname
 
         return (self.DRONE_ORDER.index(groupName),
-                drone.item.name)
+                drone.item.trnname)
 
     def fitChanged(self, event):
 

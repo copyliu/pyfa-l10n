@@ -33,16 +33,16 @@ class BaseName(ViewColumn):
 
     def getText(self, stuff):
         if isinstance(stuff, Drone):
-            return "%dx %s" % (stuff.amount, stuff.item.name)
+            return "%dx %s" % (stuff.amount, stuff.item.trnname)
         elif isinstance(stuff, Fit):
-            return "%s (%s)" % (stuff.name, stuff.ship.item.name)
+            return "%s (%s)" % (stuff.name, stuff.ship.item.trnname)
         elif isinstance(stuff, Module):
             if stuff.isEmpty:
                 return "%s Slot" % Slot.getName(stuff.slot).capitalize()
             else:
-                return stuff.item.name
+                return stuff.item.trnname
         else:
             item = getattr(stuff, "item", stuff)
-            return item.name
+            return item.trnname
 
 BaseName.register()

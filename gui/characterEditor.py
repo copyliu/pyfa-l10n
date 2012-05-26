@@ -438,7 +438,7 @@ class ImplantsTreeView (wx.Panel):
         sMkt = service.Market.getInstance()
         for mktGrp in sMkt.getImplantTree():
             iconId = self.addMarketViewImage(sMkt.getIconByMarketGroup(mktGrp))
-            childId = self.availableImplantsTree.AppendItem(root, mktGrp.name, iconId, data=wx.TreeItemData(mktGrp.ID))
+            childId = self.availableImplantsTree.AppendItem(root, mktGrp.trnname, iconId, data=wx.TreeItemData(mktGrp.ID))
             if sMkt.marketGroupHasTypesCheck(mktGrp) is False:
                 self.availableImplantsTree.AppendItem(childId, "dummy")
 
@@ -498,7 +498,7 @@ class ImplantsTreeView (wx.Panel):
             data, usedMetas = cMarket.getVariations(tree.GetPyData(root))
             for item in data:
                 id = item.ID
-                name = item.name
+                name = item.trnname
                 iconFile = item.icon.iconFile
                 iconId = self.addMarketViewImage(iconFile)
                 tree.AppendItem(root, name, iconId, data=wx.TreeItemData(id))

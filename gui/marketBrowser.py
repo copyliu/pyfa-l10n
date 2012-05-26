@@ -369,7 +369,7 @@ class ItemView(d.Display):
 
     def itemSort(self, item):
         sMkt = self.sMarket
-        catname = sMkt.getCategoryByItem(item).name
+        catname = sMkt.getCategoryByItem(item).trnname
         try:
             mktgrpid = sMkt.getMarketGroupByItem(item).ID
         except AttributeError:
@@ -380,7 +380,7 @@ class ItemView(d.Display):
         metagrpid = sMkt.getMetaGroupIdByItem(item)
         metatab = self.metaMap.get(metagrpid)
         metalvl =  self.metalvls.get(item.ID, 0)
-        return (catname, mktgrpid, parentname, metatab, metalvl, item.name)
+        return (catname, mktgrpid, parentname, metatab, metalvl, item)
 
     def contextMenu(self, event):
         # Check if something is selected, if so, spawn the menu for it
